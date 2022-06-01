@@ -1,3 +1,8 @@
+a{
+    list-style: none;
+    text-decoration: none;
+    color:#000;
+}
 .prev :hover{
     background: #fff;
 }
@@ -29,6 +34,43 @@
     border:1px solid #ccc;
 }
 
+
+
+.icons-menu-bottom{
+    height:50px; 
+    width:25px; 
+    font-size:20px; 
+    margin-right:20px; 
+    margin-top:10px;
+}
+.icons-menu-bottom i{
+    margin-left:20px;
+}
+
+.pesquisar-text-header{
+    font-family: Google Sans,Roboto,Arial,sans-serif;
+    color: #3c4043;
+    font-size: 20px;
+    letter-spacing: 0.25px;
+    line-height: 48px;
+}
+
+.right-header-nav{
+   
+    width:400px;
+}
+
+.pesquisar-text-header b{
+   margin-left:20px;
+}
+
+.buscar_pessoas_agenda{
+    margin-top:10px;
+    font-size:30px; 
+    margin-right:40px; 
+    cursor:pointer;
+}
+
 .botao-hoje{
     background:#fff;
     width:60px;
@@ -46,7 +88,7 @@
     padding:1px;
 }
 
-.bt-criar{
+.bt-criar-evento{
     background:#fff;
     color:#888;
     font-weight:500;
@@ -58,16 +100,190 @@
     border:#000;
     box-shadow:0px 0px 5px grey;
 }
-.bt-criar:hover{
+.bt-criar-evento:hover{
     background:#fff;
     color:#000;
 }
+.div-criar-evento{
+    min-width: 320px;
+    min-height: 112px;
+    left: 40px;
+    top: 170px;  
+    position:absolute;
+    z-index:10;
+    background-color:aliceblue#fff;
+    box-shadow:1px 1px 9px 1px grey;
+    border-radius: 8px;
+    background:#fff;  
+    padding:0;   
+    font-weight: 500;
+    vertical-align: middle;
+    color: #70757a;
+    display: none;
+}
+.div-criar-evento ul{
+    padding:5px;
+}
+.div-criar-evento ul li{
+    list-style: none;
+    cursor: pointer;
+    line-height: 2em;
+    text-align: left;
+    margin-top:10px;
+    padding:0;
 
+}
 .agenda-logo{
     margin-top:12px;  
 }
-
+.logo img{
+    margin-left:20px;
+    height:40px;
+}
 .component_datas{
     margin-top: 10px;
 
 }
+
+.opcoesMinhasAgendas{
+    width:100%;
+    padding:0;
+    margin-top:10px;
+    line-height:1.2;
+    letter-spacing:2px;
+    margin-bottom:10px;
+    font-size:14px;
+    font-weight:bold;
+    
+}
+
+#minhasAgendaLinks{
+    text-align: left;
+    width:90%;
+    margin-left:10px;
+}
+
+#OutrasAgendas{
+    margin-left:10px;  
+}
+
+.opcoesOutrasAgendas{
+    padding:0;
+    margin-top:10px;
+    line-height:1.2;
+    letter-spacing:2px;
+    margin-bottom:10px;
+    font-size:14px;
+    font-weight:bold;
+    
+}
+.fc-button-active{
+    border:0;
+    background:none;
+
+}
+
+.botao-header-datas{
+    margin-left: 40px;
+}
+
+
+.interrogacao-icon{
+    font-size:30px; margin-right:40px; margin-left:10px;
+}
+
+.tipo_data{  
+    -webkit-transition: background .3s;
+    transition: background .3s;
+    border: 0;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    color: #444;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 88px;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+}
+.select_options_de_datas{  
+    max-width: 238px;
+    max-height: 319px;
+    left: 1300px;
+    top: 80px;
+    width:200px; 
+    height:200px; 
+    margin-left:20px;
+    position:absolute;
+    z-index:10;
+    background-color: #fff;
+    display: none;
+   
+  
+
+}
+
+.select_options_de_datas ul li{    
+ text-decoration: none;
+ list-style: none;
+ font-size:20px;
+ text-transform: capitalize;
+ line-height: 1.8em;
+ cursor: pointer;
+}
+
+.prev{
+    width:10px;
+    float:left; 
+    margin-top:5px;
+    font-weight: bold;
+    font-size:20px;
+    cursor: pointer;
+}
+
+.next{
+    width:10px; 
+    float:left; 
+    margin-top:5px; 
+    margin-left:20px;
+    margin-right:20px;
+    font-weight: bold;
+    font-size:20px;
+    cursor: pointer;
+}
+
+
+  @media only screen and (min-width: 200px) and (max-width: 700px) {
+  body{
+      background:red;
+  }
+}
+
+  @media only screen and (min-width: 700px) and (max-width: 1000px) {
+   
+}
+
+
+    @media only screen and (min-width: 1000px) and (max-width: 1700px) {
+        
+
+        .select_options_de_datas{           
+            left: 1350px;       
+                 
+        }
+  }
+
+  @media only screen and (min-width: 1700px) and (max-width: 2200px) { 
+
+    .select_options_de_datas{           
+        left: 1680px;       
+             
+    }
+}
+
+
+
