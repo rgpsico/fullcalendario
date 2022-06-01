@@ -1,10 +1,18 @@
+body{
+    overflow: hidden;
+}
 a{
     list-style: none;
     text-decoration: none;
     color:#000;
 }
+
+.prev{
+    margin-left: 20px;
+}
 .prev :hover{
     background: #fff;
+    
 }
 
 .next :hover{
@@ -29,13 +37,81 @@ a{
 .fc-state-default.fc-corner-right :hover {
    background:#fff;
 }
+.sider-bar{
+    border-top: 1px;
+}
 
 .nav-menu{
-    border:1px solid #ccc;
+   
+}
+
+.fc-scroller{
+    overflow: hidden; 
+}
+
+.fc-daygrid-day-number{
+    text-align: center;
+}
+#calendar{
+   background: #fff;
+   border:0;
+   height:700px;
 }
 
 
+#calendario2{
+    padding-left:10px; 
+    border:0; 
+    min-height:350px;
+    font-size: 15px;
+    overflow: hidden;   
+}
+#calendario2 table{
+    overflow: hidden;
+    border: 0;
+    background: #fff;
+}
 
+#calendario2 table th{
+    border:0;
+    background: #fff;
+}
+
+
+#calendario2 td {
+  height: 14px;
+  border:0;
+  overflow: hidden;
+  line-height: 1em;
+
+}
+
+.header-calendario2{
+    width:95%;
+    margin-left:10px;
+    display: inline;
+    display:flex;
+    margin-bottom:5px;
+}
+.data_calendario2{
+    width:70%; 
+    text-transform: capitalize;
+    margin-left:12px;
+}
+
+.seta-calendario2{
+    width:50px;
+}
+
+.prev-calendario2{
+    cursor: pointer;
+    float:left; 
+    margin-right:20px;
+}
+
+.next-calendario2{
+    cursor: pointer;
+}
 .icons-menu-bottom{
     height:50px; 
     width:25px; 
@@ -55,9 +131,9 @@ a{
     line-height: 48px;
 }
 
-.right-header-nav{
-   
+.right-header-nav{   
     width:400px;
+ 
 }
 
 .pesquisar-text-header b{
@@ -65,11 +141,19 @@ a{
 }
 
 .buscar_pessoas_agenda{
-    margin-top:10px;
-    font-size:30px; 
-    margin-right:40px; 
+    margin-top:15px;
+    font-size:20px; 
+    margin-right:20px; 
     cursor:pointer;
+ 
 }
+
+.fa-search{
+    margin-top:10px;   
+    width:23px;
+    float:left;
+}
+
 
 .botao-hoje{
     background:#fff;
@@ -88,24 +172,8 @@ a{
     padding:1px;
 }
 
-.bt-criar-evento{
-    background:#fff;
-    color:#888;
-    font-weight:500;
-    width:130px;
-    height:50px;
-    border-radius:50px;
-    margin-top:20px;
-    margin-left:10px;
-    border:#000;
-    box-shadow:0px 0px 5px grey;
-}
-.bt-criar-evento:hover{
-    background:#fff;
-    color:#000;
-}
 .div-criar-evento{
-    min-width: 320px;
+    min-width: 220px;
     min-height: 112px;
     left: 40px;
     top: 170px;  
@@ -131,14 +199,50 @@ a{
     text-align: left;
     margin-top:10px;
     padding:0;
-
 }
+
+.bt-criar-evento{
+    background:#fff;
+    color:#888;
+    font-weight:500;
+    width:130px;
+    height:50px;
+    border-radius:50px;
+    margin-top:20px;
+    margin-left:10px;
+    border:#000;
+    box-shadow:0px 0px 5px grey;
+}
+.bt-criar-evento :hover{
+    background:#fff;
+    color:#000;
+}
+.bt-criar-evento-text{
+    margin-top: 6px;
+    margin-left:5px; 
+    height:20px;   
+    float:left;
+}
+
+.bt-criar-evento svg{
+    float:left;
+}
+.icon-criar-evento{  
+    margin-top:5px;
+    margin-right:2px;
+    float:right;
+}
+
 .agenda-logo{
     margin-top:12px;  
+}
+.logo{
+    width:170px;
 }
 .logo img{
     margin-left:20px;
     height:40px;
+ 
 }
 .component_datas{
     margin-top: 10px;
@@ -153,8 +257,7 @@ a{
     letter-spacing:2px;
     margin-bottom:10px;
     font-size:14px;
-    font-weight:bold;
-    
+    font-weight:bold;    
 }
 
 #minhasAgendaLinks{
@@ -189,8 +292,11 @@ a{
 
 
 .interrogacao-icon{
-    font-size:30px; margin-right:40px; margin-left:10px;
+    font-size:30px; 
+    margin-right:18px; 
+  
 }
+
 
 .tipo_data{  
     -webkit-transition: background .3s;
@@ -212,28 +318,29 @@ a{
 }
 .select_options_de_datas{  
     max-width: 238px;
-    max-height: 319px;
+    min-height:auto;
     left: 1300px;
     top: 80px;
-    width:200px; 
-    height:200px; 
+    width:180px; 
+    height:auto; 
     margin-left:20px;
     position:absolute;
     z-index:10;
     background-color: #fff;
     display: none;
-   
-  
-
 }
-
-.select_options_de_datas ul li{    
- text-decoration: none;
- list-style: none;
- font-size:20px;
- text-transform: capitalize;
- line-height: 1.8em;
- cursor: pointer;
+.select_options_de_datas ul{
+    min-height: auto;
+}
+.select_options_de_datas ul li{  
+    text-align: left;
+    padding:0;  
+    text-decoration: none;
+    list-style: none;
+    font-size:20px;
+    text-transform: capitalize;
+    line-height: 1.8em;
+    cursor: pointer;
 }
 
 .prev{
@@ -256,6 +363,35 @@ a{
     cursor: pointer;
 }
 
+.fc-col-header th  a{
+    color:#70757a;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-family: Roboto,Arial,sans-serif;
+    text-transform: uppercase;
+
+}
+
+.fc-daygrid-day-top{
+    margin-top:15px;
+    color:#70757a;
+    margin-top: 8px;
+    font-family: Roboto,Arial,sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .3px;  
+    text-align: center;
+    white-space: nowrap;  
+    min-width: 24px;
+    color: #70757a;
+    line-height: 16px;
+    pointer-events: auto;
+}
+
+
 
   @media only screen and (min-width: 200px) and (max-width: 700px) {
   body{
@@ -270,11 +406,11 @@ a{
 
     @media only screen and (min-width: 1000px) and (max-width: 1700px) {
         
-
         .select_options_de_datas{           
-            left: 1350px;       
+            left: 1200px;       
                  
         }
+     
   }
 
   @media only screen and (min-width: 1700px) and (max-width: 2200px) { 
