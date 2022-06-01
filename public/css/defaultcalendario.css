@@ -42,7 +42,7 @@ a{
 }
 
 .nav-menu{
-   
+    height:70px;
 }
 
 .fc-scroller{
@@ -159,7 +159,7 @@ a{
     background:#fff;
     width:60px;
     height:40px;
-    margin: 1px 12px 5px 12px;
+    margin: 3px 12px 5px 1px;
     font-family: "Google Sans",Roboto,Arial,sans-serif;
     font-size: 14px;
     font-weight: 500;
@@ -237,13 +237,21 @@ a{
     margin-top:12px;  
 }
 .logo{
-    width:170px;
+    width:130px;
 }
 .logo img{
-    margin-left:20px;
-    height:40px;
+    margin-left:14px;   
+    margin-top:10px;
  
 }
+.logo span{
+    margin-top:12px;
+    font-weight:500; 
+    font-size:20px; 
+    float:right;
+
+}
+
 .component_datas{
     margin-top: 10px;
 
@@ -343,10 +351,18 @@ a{
     cursor: pointer;
 }
 
+
+.nextprev-header{
+    margin-left:20px;
+    margin-top:5px;
+    width:90px;  
+    float:left;
+  
+}
 .prev{
     width:10px;
+    margin-right:25px;
     float:left; 
-    margin-top:5px;
     font-weight: bold;
     font-size:20px;
     cursor: pointer;
@@ -354,13 +370,21 @@ a{
 
 .next{
     width:10px; 
-    float:left; 
-    margin-top:5px; 
-    margin-left:20px;
-    margin-right:20px;
+    float:left;   
     font-weight: bold;
     font-size:20px;
     cursor: pointer;
+}
+
+.data-header{
+    text-transform: capitalize;
+    color: #3c4043;
+    font-family: Google Sans,Roboto,Arial,sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 28px;
+    white-space: nowrap;
 }
 
 .fc-col-header th  a{

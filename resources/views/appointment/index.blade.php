@@ -34,7 +34,7 @@
                 <li class="logo">
                     <img src="https://ssl.gstatic.com/calendar/images/dynamiclogo_2020q4/calendar_2_2x.png"
                         width="40" height="40" alt="">
-                    <span style="margin-left:10px; font-weight:500; font-size:20px; #ccc">Agenda</span>
+                    <span style="">Agenda</span>
                 </li>
 
                 <li class="pesquisar-text-header">
@@ -70,7 +70,7 @@
                 </div>
             </div>
 
-                <span class="data-header fc-header-title my-2" style="font-size:20px; margin-left:20px;"></span>
+                <span class="data-header fc-header-title my-2"></span>
             </span>
         </div>
 
@@ -134,8 +134,6 @@
                 </div>
             </div>
             <div id="calendario2">
-
-
             </div>
 
             <div class="div-criar-evento">
