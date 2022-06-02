@@ -18,11 +18,11 @@
     
 
 
-    <nav class="navbar navbar-expand-sm nav-menu" style="background: #fff">
+    <nav class="navbar navbar-expand-sm nav-menu  col-lg-11 col-xl-12" style="background: #fff">
 
-        <div class="container-fluid agenda-logo">
+        <div class="agenda-logo">
             <!-- Links -->
-            <ul class="navbar-nav">
+            <ul class="navbar-nav display-sm-none">
                 <li class="icons-menu-bottom">
                     <i class="fa-solid fa-bars"></i>
                 </li>
@@ -46,13 +46,22 @@
 
 
 
-        <div class="input-group mt-3 pesquisar_pessoas" style="margin-right:90px;">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1" style="height:50px; ">
-                    <i class="fas fa-user"></i>
+        <div class="input-group mt-3 pesquisar_pessoas mb-2 ">
+            <div class="input-group-prepend" >
+                <span class="input-group-text" id="pesquisar_search_input" style="height:50px; background:#fff; ">
+                    <i class="fa fa-search "></i>
                 </span>
             </div>
-            <input type="text" class="form-control" placeholder="Pesquisar Pessoas" id="pesquisar_header_input">
+                <div class="no-hidden">
+                    
+                </div>
+             <input type="text" class="form-control pesqu"  placeholder="Pesquisar" id="pesquisar_header_input">
+
+            <div class="input-group-append" style="background:#fff; cursor:pointer;">
+                <span class="input-group-text h-100" >
+                    <i class="fa-solid fa-caret-down">
+                        </i></span>
+              </div>
         </div>
 
 
@@ -74,7 +83,7 @@
             </span>
         </div>
 
-        <div class="col-3 right-header-nav">
+        <div class="col-3  right-header-nav">
             <i class="fa fa-search buscar_pessoas_agenda"></i>
 
             <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="interrogacao-icon">
@@ -83,28 +92,30 @@
             <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="config-icon">
                 <path d="M13.85 22.25h-3.7c-.74 0-1.36-.54-1.45-1.27l-.27-1.89c-.27-.14-.53-.29-.79-.46l-1.8.72c-.7.26-1.47-.03-1.81-.65L2.2 15.53c-.35-.66-.2-1.44.36-1.88l1.53-1.19c-.01-.15-.02-.3-.02-.46 0-.15.01-.31.02-.46l-1.52-1.19c-.59-.45-.74-1.26-.37-1.88l1.85-3.19c.34-.62 1.11-.9 1.79-.63l1.81.73c.26-.17.52-.32.78-.46l.27-1.91c.09-.7.71-1.25 1.44-1.25h3.7c.74 0 1.36.54 1.45 1.27l.27 1.89c.27.14.53.29.79.46l1.8-.72c.71-.26 1.48.03 1.82.65l1.84 3.18c.36.66.2 1.44-.36 1.88l-1.52 1.19c.01.15.02.3.02.46s-.01.31-.02.46l1.52 1.19c.56.45.72 1.23.37 1.86l-1.86 3.22c-.34.62-1.11.9-1.8.63l-1.8-.72c-.26.17-.52.32-.78.46l-.27 1.91c-.1.68-.72 1.22-1.46 1.22zm-3.23-2h2.76l.37-2.55.53-.22c.44-.18.88-.44 1.34-.78l.45-.34 2.38.96 1.38-2.4-2.03-1.58.07-.56c.03-.26.06-.51.06-.78s-.03-.53-.06-.78l-.07-.56 2.03-1.58-1.39-2.4-2.39.96-.45-.35c-.42-.32-.87-.58-1.33-.77l-.52-.22-.37-2.55h-2.76l-.37 2.55-.53.21c-.44.19-.88.44-1.34.79l-.45.33-2.38-.95-1.39 2.39 2.03 1.58-.07.56a7 7 0 0 0-.06.79c0 .26.02.53.06.78l.07.56-2.03 1.58 1.38 2.4 2.39-.96.45.35c.43.33.86.58 1.33.77l.53.22.38 2.55z"></path><circle cx="12" cy="12" r="3.5"></circle></svg>
 
-            <a href="#" title="" class="btn btn-light botao-header-datas">
-                Mês <span class="icon">
-                    <i class="fa-solid fa-caret-down"></i>
-                </span>
-            </a>
+              
+                    <a href="#" title="" class="btn btn-light botao-header-datas">
+                    Mês <span class="icon">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </span>
+                    </a>
             <div class="select_options_de_datas">
                 <ul>
-                    <li class="dia" id="dia">Dia</li>
-                    <li class="semana" id="semana">Semana</li>
-                    <li class="mes" id="mes">Mês</li>
-                    <li class="ano" id="ano">Ano</li>
+                    <li class="dia" id="dia"><span>Dia</span> </li>
+                    <li class="semana" id="semana"> <span>Semana</span> </li>
+                    <li class="mes" id="mes"> <span>Mês</span></li>
+                    <li class="ano" id="ano"> <span>Ano</span></li>
                     {{-- <li class="programacao" id="programacao">Programação</li>
                     <li class="4dias" id="4dias">4 Dias</li> --}}
                 </ul>
 
             </div>
+         
         </div>
     </nav>
 
 
     <div class="container-fluid p-0">
-        <div class="col-2  sider-bar" style="float:left;  border-top:1px solid #ccc;">
+        <div class="col-md-3 col-lg-2 col-sm-2 col-xl-2  sider-bar" style="float:left;  border-top:1px solid #ccc;">
 
 
             <div class="col-sm-12 mb-3">
@@ -133,14 +144,13 @@
                    </div>
                 </div>
             </div>
-            <div id="calendario2">
-            </div>
+            <div id="calendario2"></div>
 
             <div class="div-criar-evento">
                 <ul>
-                    <li>Evento</li>
-                    <li>Tarefa</li>
-                    <li>Agendamento de horários</li>
+                    <li><a href="#"> Evento</a>  </li>
+                    <li><a href="#">Tarefa</a></li>
+                    <li><a href="#">Agendamento de horários</a></li>
 
                 </ul>
             </div>
@@ -200,7 +210,7 @@
               </div>
             <div class="col-12 my-5" style=" padding:10px; float:left;"></div>
         </div>
-        <div class="col-10" id="calendar" style="float:left;"></div>
+        <div class="col-md-10" id="calendar" style="float:left; width:83%;"></div>
     </div>
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -242,15 +252,18 @@
         $('.component_datas').show();
         $('.pesquisar_pessoas').hide();
 
-
-        $('.buscar_pessoas_agenda').click(function() {
-            $('.pesquisar_pessoas').toggle();
-            $('.component_datas').toggle();
-            $('.pesquisar-text-header').toggle();
-            $('.logo').toggle();
-            $('.icons-menu-bottom').toggle();
+        $(document).on('click', '.buscar_pessoas_agenda', function(event) {         
+            toggle_elementos_no_header()
+            $('#pesquisar_header_input').focus();
 
         })
+
+           $(document).on('click', '.no-hidden', function(event) {         
+         
+            toggle_elementos_no_header()
+        })
+
+       
 
 
         $('.icons-menu-bottom').click(function() {
@@ -258,9 +271,9 @@
             $('.fc-daygrid-bod').css('width','100%');         
             $('#calendar').addClass('col-10');
             $('#calendar').removeClass('col-12');
-        
+            $('#calendar').css('width','75%');
             if($('.sider-bar').css('display') == 'none'){
-                $('#calendar').removeClass('col-10');
+                $('#calendar').css('width','100%');
                 $('#calendar').addClass('col-12');
                 $('.fc-col-header').css('width','100%');
                 $('.fc-daygrid-body').css('width','100%');
@@ -306,6 +319,7 @@
       
         var calendar = new FullCalendar.Calendar(calendarEl, {
             editable:true,
+    
             lang: 'pt-br',
             headerToolbar: {
                 left: 'prev,next today',
@@ -416,7 +430,8 @@
     var calendar2 = new FullCalendar.Calendar(calendarE2, {      
         aspectRatio: 20,
             editable:true,
-            isRTL: false,
+            isRTL: false,           
+     
             lang: 'pt-br',      
             headerToolbar: {
                 left: 'prev,next today',
@@ -437,8 +452,9 @@
             }
         });
 
-        calendar2.render()
-      
+        calendar2.render()    
+        calendar2.setOption('contentWidth', 200);
+   
         
         $('.data_calendario2').text(calendar2.currentData.viewTitle)
         $('.fc-scroller').css('overflow','hidden')
@@ -463,6 +479,16 @@
         }
         function diasCalendario1(dia){
            return '#calendar > div.fc-view-harness.fc-view-harness-active > div > table > thead > tr > th > div > div > table > thead > tr > th.fc-col-header-cell.fc-day.fc-day-'+dia+' > div > a';
-        }         
+        }
+        
+        function toggle_elementos_no_header(){
+            $('.pesquisar_pessoas').toggle();
+            $('.component_datas').toggle();
+            $('.pesquisar-text-header').toggle();
+            $('.logo').toggle();
+            $('.icons-menu-bottom').toggle();
+            $('.right-header-nav').toggle();
+
+        }
    
 </script>

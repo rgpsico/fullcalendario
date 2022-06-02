@@ -7,6 +7,103 @@ a{
     color:#000;
 }
 
+#calendar{
+    background: #fff;
+    border:0;
+    height:700px;
+ }
+ 
+
+
+.icons-menu-bottom{
+    height:50px; 
+    width:25px; 
+    font-size:20px; 
+    margin-right:20px; 
+    margin-top:10px;
+}
+.icons-menu-bottom i{
+    margin-left:20px;
+}
+
+
+.agenda-logo{
+    margin-top:12px;  
+}
+.logo{
+    width:130px;
+}
+.logo img{
+    margin-left:14px;   
+    margin-top:10px;
+ 
+}
+.logo span{
+    margin-top:12px;
+    font-weight:500; 
+    font-size:20px; 
+    float:right;
+
+}
+
+.botao-hoje{
+    background:#fff;
+    width:60px;
+    height:40px;
+    margin: 3px 12px 5px 60px;
+    font-family: "Google Sans",Roboto,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .2px;
+    text-transform: none;
+    opacity: 1;
+    color: #3c4043;
+    border-radius:5px;
+    border:1px solid #ccc;
+    padding:1px;
+}
+
+.input-group-text{
+    background: none;
+   
+}
+
+.nextprev-header{
+    margin-left:70px;
+    margin-top:5px;
+    width:90px;  
+    float:left;
+  
+}
+
+
+.pesquisar-text-header{
+    font-family: Google Sans,Roboto,Arial,sans-serif;
+    color: #3c4043;
+    font-size: 20px;
+    letter-spacing: 0.25px;
+    line-height: 48px;
+    margin-left:40px;
+    width:150px;
+}
+
+.pesquisar-text-header b{
+    margin-left:20px;
+ 
+ }
+
+ .pesquisar_pessoas{
+     width:70%;
+     margin-left:1px;
+     float:left;
+ }
+
+ #pesquisar_header_input{
+     border-left:none;
+     border-right:none; 
+    
+ }
+
 .prev{
     margin-left: 20px;
 }
@@ -18,6 +115,18 @@ a{
 .next :hover{
     background: #fff;
 }
+
+
+.data-header{   
+    color: #3c4043;
+    font-family: Google Sans,Roboto,Arial,sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 28px;
+    white-space: nowrap;
+}
+
 .fc-state-default.fc-corner-left {
     border:0;
     color:#000;
@@ -37,6 +146,12 @@ a{
 .fc-state-default.fc-corner-right :hover {
    background:#fff;
 }
+
+
+
+
+/*SIDE_BAR*/
+
 .sider-bar{
     border-top: 1px;
 }
@@ -52,12 +167,298 @@ a{
 .fc-daygrid-day-number{
     text-align: center;
 }
-#calendar{
-   background: #fff;
-   border:0;
-   height:700px;
+
+
+
+.right-header-nav{   
+    width:400px; 
+    padding:5px; 
+ }
+
+ .buscar_pessoas_agenda{ 
+    margin-top:10px;
+    font-size:20px; 
+    margin-right:27px; 
+    cursor:pointer; 
 }
 
+.fa-search{   /*icon de pesquisar*/
+    width:23px;   
+    margin-top:10px;
+    float:left;
+    color:#5f6368;
+    opacity:0.9;
+}
+
+.interrogacao-icon{
+    font-size:30px; 
+    margin-right:27px; 
+    color:#5f6368;
+    opacity:0.9;
+  }
+
+  .config-icon{
+    color:#5f6368;
+    opacity:0.9; 
+  }
+
+  .botao-header-datas{
+    margin-top:1px;
+    margin-left: 40px;
+    background: #ffffff;
+    border:1px solid  #ccc;
+    width:80px;
+    height:36px;   
+}
+
+.botao-header-datas a{
+  margin-right:10px;
+}
+
+.fa-caret-down{
+    float:right;
+    margin-left:14px;
+    margin-top:5px;
+    color:#ccc;
+    
+}
+
+
+
+
+.div-criar-evento{
+    min-width: 320px;
+    min-height: 112px;
+    left: 40px;
+    top: 170px;  
+    position:absolute;
+    z-index:10;
+    background-color:aliceblue#fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 8px;
+    background:#fff;   
+    
+    vertical-align: middle;
+    color: #70757a;
+    display: none;
+}
+.div-criar-evento ul{
+    padding:5px;
+}
+.div-criar-evento ul li{
+    list-style: none;
+    cursor: pointer;
+    line-height: 1.5em;
+    text-align: left;
+    margin-top:10px;
+    padding:0;
+}
+
+.div-criar-evento ul li a{
+    margin-left:15px;
+    font-size:14px;
+    font-family:Roboto,Helvetica,Arial, Helvetica, sans-serif ;
+}
+
+
+.bt-criar-evento{
+    background:#fff;
+    color:#888;
+    font-weight:500;
+    width:130px;
+    height:50px;
+    border-radius:50px;
+    margin-top:20px;
+    margin-left:10px;
+    border:#000;
+    box-shadow:0px 0px 5px grey;
+}
+.bt-criar-evento :hover{
+    background:#fff;
+    color:#000;
+}
+.bt-criar-evento-text{
+    margin-top: 6px;
+    margin-left:5px; 
+    height:20px;   
+    float:left;
+}
+
+.bt-criar-evento svg{
+    float:left;
+}
+.icon-criar-evento{  
+    margin-top:5px;
+    margin-right:2px;
+    float:right;
+}
+
+.component_datas{
+    margin-top: 10px;
+
+}
+
+.opcoesMinhasAgendas{
+    width:100%;
+    padding:0;
+    margin-top:10px;
+    line-height:1.2;
+    letter-spacing:2px;
+    margin-bottom:10px;
+    font-size:14px;
+    font-weight:bold;    
+}
+
+#minhasAgendaLinks{
+    text-align: left;
+    width:90%;
+    margin-left:10px;
+}
+
+#OutrasAgendas{
+    margin-left:10px;  
+}
+
+.opcoesOutrasAgendas{
+    padding:0;
+    margin-top:10px;
+    line-height:1.2;
+    letter-spacing:2px;
+    margin-bottom:10px;
+    font-size:14px;
+    font-weight:bold;
+    
+}
+.fc-button-active{
+    border:0;
+    background:none;
+
+}
+
+
+.header-right-icons{
+width:500px;
+
+
+}
+
+
+.tipo_data{  
+    -webkit-transition: background .3s;
+    transition: background .3s;
+    border: 0;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    color: #444;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 88px;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+}
+.select_options_de_datas{  
+    max-width: 238px;
+    min-height:auto;
+    left: 1300px;
+    top: 80px;
+    width:256px; 
+    height:auto; 
+    margin-left:20px;
+    position:absolute;
+    z-index:10;
+    background-color: #fff;
+     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    text-rendering: geometricPrecision;       
+    -webkit-border-radius: 8px;
+    display: none;
+  
+}
+.select_options_de_datas ul{
+    min-height: auto;
+    padding:0;
+    padding-top:10px;
+}
+
+.select_options_de_datas ul li{  
+    text-align: left;  
+    text-decoration: none;
+    list-style: none;    
+    line-height: 1.8em;
+    cursor: pointer; 
+    box-shadow: none;  
+    min-height: 40px;    
+   
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+}
+
+.select_options_de_datas ul li:hover{
+    background:#84848417;
+  }
+
+.select_options_de_datas span {
+    margin-left:15px;
+    font-size:14px;
+    font-family:Roboto,Helvetica,Arial, Helvetica, sans-serif ;
+    color:#222;
+    text-transform: capitalize;
+}
+
+
+.prev{
+    width:10px;
+    margin-right:25px;
+    float:left; 
+    font-weight: bold;
+    font-size:20px;
+    cursor: pointer;
+}
+
+.next{
+    width:10px; 
+    float:left;   
+    font-weight: bold;
+    font-size:20px;
+    cursor: pointer;
+}
+
+
+
+.fc-col-header th  a{
+    color:#70757a;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-family: Roboto,Arial,sans-serif;
+    text-transform: uppercase;
+
+}
+
+.fc-daygrid-day-top{
+    margin-top:15px;
+    color:#70757a;
+    margin-top: 8px;
+    font-family: Roboto,Arial,sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .3px;  
+    text-align: center;
+    white-space: nowrap;  
+    min-width: 24px;
+    color: #70757a;
+    line-height: 16px;
+    pointer-events: auto;
+}
+
+
+
+/*Calendario side-bar*/
 
 #calendario2{
     padding-left:10px; 
@@ -112,329 +513,115 @@ a{
 .next-calendario2{
     cursor: pointer;
 }
-.icons-menu-bottom{
-    height:50px; 
-    width:25px; 
-    font-size:20px; 
-    margin-right:20px; 
-    margin-top:10px;
-}
-.icons-menu-bottom i{
-    margin-left:20px;
-}
 
-.pesquisar-text-header{
-    font-family: Google Sans,Roboto,Arial,sans-serif;
-    color: #3c4043;
-    font-size: 20px;
-    letter-spacing: 0.25px;
-    line-height: 48px;
-}
-
-.right-header-nav{   
-    width:400px;
- 
-}
-
-.pesquisar-text-header b{
-   margin-left:20px;
-}
-
-.buscar_pessoas_agenda{
-    margin-top:15px;
-    font-size:20px; 
-    margin-right:20px; 
-    cursor:pointer;
- 
-}
-
-.fa-search{
-    margin-top:10px;   
-    width:23px;
-    float:left;
-}
-
-
-.botao-hoje{
-    background:#fff;
-    width:60px;
-    height:40px;
-    margin: 3px 12px 5px 1px;
-    font-family: "Google Sans",Roboto,Arial,sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: .2px;
-    text-transform: none;
-    opacity: 1;
-    color: #3c4043;
-    border-radius:5px;
-    border:1px solid #ccc;
-    padding:1px;
-}
-
-.div-criar-evento{
-    min-width: 220px;
-    min-height: 112px;
-    left: 40px;
-    top: 170px;  
-    position:absolute;
-    z-index:10;
-    background-color:aliceblue#fff;
-    box-shadow:1px 1px 9px 1px grey;
-    border-radius: 8px;
-    background:#fff;  
-    padding:0;   
-    font-weight: 500;
-    vertical-align: middle;
-    color: #70757a;
-    display: none;
-}
-.div-criar-evento ul{
-    padding:5px;
-}
-.div-criar-evento ul li{
-    list-style: none;
-    cursor: pointer;
-    line-height: 2em;
-    text-align: left;
-    margin-top:10px;
-    padding:0;
-}
-
-.bt-criar-evento{
-    background:#fff;
-    color:#888;
-    font-weight:500;
-    width:130px;
+.no-hidden{       
+    width:119%;
     height:50px;
-    border-radius:50px;
-    margin-top:20px;
-    margin-left:10px;
-    border:#000;
-    box-shadow:0px 0px 5px grey;
-}
-.bt-criar-evento :hover{
-    background:#fff;
-    color:#000;
-}
-.bt-criar-evento-text{
-    margin-top: 6px;
-    margin-left:5px; 
-    height:20px;   
-    float:left;
-}
-
-.bt-criar-evento svg{
-    float:left;
-}
-.icon-criar-evento{  
-    margin-top:5px;
-    margin-right:2px;
-    float:right;
-}
-
-.agenda-logo{
-    margin-top:12px;  
-}
-.logo{
-    width:130px;
-}
-.logo img{
-    margin-left:14px;   
-    margin-top:10px;
- 
-}
-.logo span{
-    margin-top:12px;
-    font-weight:500; 
-    font-size:20px; 
-    float:right;
-
-}
-
-.component_datas{
-    margin-top: 10px;
-
-}
-
-.opcoesMinhasAgendas{
-    width:100%;
-    padding:0;
-    margin-top:10px;
-    line-height:1.2;
-    letter-spacing:2px;
-    margin-bottom:10px;
-    font-size:14px;
-    font-weight:bold;    
-}
-
-#minhasAgendaLinks{
-    text-align: left;
-    width:90%;
-    margin-left:10px;
-}
-
-#OutrasAgendas{
-    margin-left:10px;  
-}
-
-.opcoesOutrasAgendas{
-    padding:0;
-    margin-top:10px;
-    line-height:1.2;
-    letter-spacing:2px;
-    margin-bottom:10px;
-    font-size:14px;
-    font-weight:bold;
-    
-}
-.fc-button-active{
-    border:0;
-    background:none;
-
-}
-
-.botao-header-datas{
-    margin-left: 40px;
-}
-
-
-.interrogacao-icon{
-    font-size:30px; 
-    margin-right:18px; 
-  
-}
-
-
-.tipo_data{  
-    -webkit-transition: background .3s;
-    transition: background .3s;
-    border: 0;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    color: #444;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 14px;
-    font-weight: 500;
-    min-width: 88px;
-    outline: none;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
-    -webkit-tap-highlight-color: transparent;
-}
-.select_options_de_datas{  
-    max-width: 238px;
-    min-height:auto;
-    left: 1300px;
-    top: 80px;
-    width:180px; 
-    height:auto; 
-    margin-left:20px;
     position:absolute;
     z-index:10;
-    background-color: #fff;
-    display: none;
-}
-.select_options_de_datas ul{
-    min-height: auto;
-}
-.select_options_de_datas ul li{  
-    text-align: left;
-    padding:0;  
-    text-decoration: none;
-    list-style: none;
-    font-size:20px;
-    text-transform: capitalize;
-    line-height: 1.8em;
-    cursor: pointer;
-}
+    left:620px;    
+ }
 
-
-.nextprev-header{
-    margin-left:20px;
-    margin-top:5px;
-    width:90px;  
-    float:left;
-  
+ .fc-day-grid-event > .fc-content {
+    white-space: normal;
 }
-.prev{
-    width:10px;
-    margin-right:25px;
-    float:left; 
-    font-weight: bold;
-    font-size:20px;
-    cursor: pointer;
-}
-
-.next{
-    width:10px; 
-    float:left;   
-    font-weight: bold;
-    font-size:20px;
-    cursor: pointer;
-}
-
-.data-header{
-    text-transform: capitalize;
-    color: #3c4043;
-    font-family: Google Sans,Roboto,Arial,sans-serif;
-    font-size: 22px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: 28px;
-    white-space: nowrap;
-}
-
-.fc-col-header th  a{
-    color:#70757a;
-    font-size: 11px;
-    font-weight: 500;
-    line-height: 20px;
-    margin-bottom: 5px;
-    text-align: center;
-    font-family: Roboto,Arial,sans-serif;
-    text-transform: uppercase;
-
-}
-
-.fc-daygrid-day-top{
-    margin-top:15px;
-    color:#70757a;
-    margin-top: 8px;
-    font-family: Roboto,Arial,sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: .3px;  
-    text-align: center;
-    white-space: nowrap;  
-    min-width: 24px;
-    color: #70757a;
-    line-height: 16px;
-    pointer-events: auto;
-}
-
 
 
   @media only screen and (min-width: 200px) and (max-width: 700px) {
   body{
-      background:red;
+     
   }
 }
 
-  @media only screen and (min-width: 700px) and (max-width: 1000px) {
+  @media only screen and (min-width: 700px) and (max-width: 1024px) {
+     body{
+        
+       
+          
+     }
+
+     .botao-hoje{
+        margin-left:70px;
+
+    }
+
+    .nextprev-header{
+        margin-left:120px;
+
+    }
+     .select_options_de_datas{
+         left:850px;
+         top:70;
+     }
+
+     .pesquisar_pessoas{
+        margin-left:120px;
+        margin-right:10px;     
+     
+     }
+
+     .select_options_de_datas{
+        top:56px;
+
+     }
+   
+    
    
 }
 
 
-    @media only screen and (min-width: 1000px) and (max-width: 1700px) {
-        
+    @media only screen and (min-width: 1025px) and (max-width: 1300px) {
+        body{   
+                
+            
+        }
+
+        .botao-hoje{
+            margin-left:130px;
+    
+        }
+    
+        .nextprev-header{
+            margin-left:160px;
+    
+        }
+
+       
         .select_options_de_datas{           
             left: 1200px;       
                  
         }
+        .pesquisar_pessoas{
+            margin-left:150px;
+            width:50%;          
+         }
+
+         .select_options_de_datas{
+            left: 1050px;
+            top:60px;
+    
+         }
+         .div-criar-evento{
+            top: 144px; 
+         }
      
+  }
+
+  @media only screen and (min-width: 1320px) and (max-width: 1500px) {
+      body{
+          
+      }
+
+    .select_options_de_datas{
+        left: 1100px;
+         top: 60px;
+
+     }
+
+     .div-criar-evento{
+        top: 146px;
+     }
+
   }
 
   @media only screen and (min-width: 1700px) and (max-width: 2200px) { 
@@ -443,6 +630,12 @@ a{
         left: 1680px;       
              
     }
+
+    .pesquisar_pessoas{
+        margin-left:300px;
+        width:50%;          
+     }
+
 }
 
 
