@@ -173,18 +173,29 @@ a{
 .right-header-nav{   
     width:400px; 
     padding:5px; 
+    margin-top: 4px;
  }
 
  .buscar_pessoas_agenda{ 
-    margin-top:10px;
+    margin-top:5px;
     font-size:20px; 
     margin-right:27px; 
     cursor:pointer; 
 }
 
+.icones-header{
+    margin-top:5px;
+    width:140px;
+    float:left;
+}
+.bt-mes-div{
+    width:40px;
+    float:left;
+}
+
 .fa-search{   /*icon de pesquisar*/
     width:23px;   
-    margin-top:10px;
+    margin-top:5px;
     float:left;
     color:#5f6368;
     opacity:0.9;
@@ -230,7 +241,7 @@ a{
     min-width: 320px;
     min-height: 112px;
     left: 40px;
-    top: 170px;  
+    top: 146px;   
     position:absolute;
     z-index:10;
     background-color:aliceblue#fff;
@@ -288,7 +299,7 @@ a{
     float:left;
 }
 .icon-criar-evento{  
-    margin-top:5px;
+    margin-top:1px;
     margin-right:2px;
     float:right;
 }
@@ -364,8 +375,8 @@ width:500px;
 .select_options_de_datas{  
     max-width: 238px;
     min-height:auto;
-    left: 1300px;
-    top: 80px;
+
+    top: 60px;
     width:256px; 
     height:auto; 
     margin-left:20px;
@@ -376,6 +387,7 @@ width:500px;
     text-rendering: geometricPrecision;       
     -webkit-border-radius: 8px;
     display: none;
+  
   
 }
 .select_options_de_datas ul{
@@ -550,7 +562,7 @@ width:500px;
 
     }
      .select_options_de_datas{
-         left:850px;
+       
          top:70;
      }
 
@@ -588,7 +600,7 @@ width:500px;
 
        
         .select_options_de_datas{           
-            left: 1200px;       
+                
                  
         }
         .pesquisar_pessoas{
@@ -597,7 +609,7 @@ width:500px;
          }
 
          .select_options_de_datas{
-            left: 1050px;
+         
             top:60px;
     
          }
@@ -613,7 +625,7 @@ width:500px;
       }
 
     .select_options_de_datas{
-        left: 1100px;
+       
          top: 60px;
 
      }
@@ -627,7 +639,7 @@ width:500px;
   @media only screen and (min-width: 1700px) and (max-width: 2200px) { 
 
     .select_options_de_datas{           
-        left: 1680px;       
+         
              
     }
 
