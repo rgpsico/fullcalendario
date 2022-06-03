@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Bootstrap 5 Example</title>
+    <title>Agenda</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,10 +13,47 @@
     <link href=' {{ asset('css/fullcalendar.print.css') }}' rel='stylesheet' media='print' />
     <link href=' {{ asset('css/defaultcalendario.css') }}' rel='stylesheet' />
     <link href=' {{ asset('css/main.css') }}' rel='stylesheet' />
-
 <body>
 
 
+
+    <div class="modal-micro">        
+            <div class="modal-micro-header">
+                <span class="fechar-modal-micro" alt="Fechar Modal">X</span>
+            </div>
+            <div class="modal-micro-body">
+                <div class="input-group col-6">
+                    <input type="text" class="form-control" placeholder="Adicionar Titulo" style="width:50%;">
+                </div>               
+                <div class="opcoes-modal-micro p-1">
+                    <ul>
+                        <li>Evento</li>
+                        <li>Tarefa</li>
+                        <li>Lembrete</li>
+                        <li>Agendamento de horarios</li>
+                    </ul>
+                </div>
+
+                <div class="modal-micro-content col-12 d-inline"> 
+                    <div class="event-dia">Terça-feira, 1 de fevereiro</div>     
+                    <div class="event-hora-start">4:30pm</div>-
+                    <div class="event-hora-end">5:30pm</div>    
+                </div>
+
+               
+                    <div class="event-hora-start"></div>  
+                    <div class="event-hora-end"></div>  
+            
+
+            </div>
+            <div class="modal-micro-footer">
+                <div class="col-md-12">
+                 <button class="btn"> Mais opções</button>
+                <div class="btn btn-primary">Salvar</div>
+                </div>
+            </div>
+
+    </div>
 
     <nav class="navbar navbar-expand-sm nav-menu  col-lg-11 col-xl-12" style="background: #fff">
 
@@ -52,17 +89,81 @@
                     <i class="fa fa-search "></i>
                 </span>
             </div>
-            <div class="no-hidden">
-
-            </div>
+            {{--  --}}
             <input type="text" class="form-control pesqu" placeholder="Pesquisar" id="pesquisar_header_input">
-
-            <div class="input-group-append" style="background:#fff; cursor:pointer;">
+           
+            <div class="input-group-append preprend-pesquisar" style="background:#fff; cursor:pointer;">
                 <span class="input-group-text h-100">
                     <i class="fa-solid fa-caret-down">
-                    </i></span>
-            </div>
+                    </i>
+                </span>
+                
+            </div> 
+            <div class="submenu-pesquisar-principal menuFloat">
+                <form>
+                    <div class="form-group row">
+                      <label for="Pesquisar" class="col-form-label" style="width:115px;font-size:14px;">Pesquisar Em</label>
+                      <div class="col-sm-2">
+                        <select class="form-control form-control-sm" name="Oque" id="oQue" style="width:100px;">
+                            <option>Small select</option>
+                          </select>
+                                              </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="inputPassword3" class="col-sm-2 col-form-label" >O quê</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm w-75%" id="Pesquisar" placeholder="Email" style="width:70%;">
+
+                       
+                    </div>
+                    </div> 
+                    
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label" >Quem</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control form-control-sm" id="Quem" name="Quem" placeholder="Quem" style="width:70%;">
+                        </div>
+                      </div>   
+
+
+                      <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label" >Onde</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control form-control-sm" id="Onde" name="Onde" placeholder="Onde" style="width:70%;">
+                        </div>
+                      </div> 
+                      
+                      
+                      <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label" >Não tem</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control form-control-sm" id="Nao_tem" name="Nao_tem" placeholder="Não tem" style="width:70%;">
+                                </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label" >Data</label>
+                        <div class="form-group col-2">                        
+                            <input type="date" class="form-control" id="Data_start" placeholder="Data de início" name="Data_start" style="width:112px;" placeholder="Data de Início">
+                          </div>
+                           <span class="my-3" style="width:10px; margin-left:10px; margin-right:10px;">Até</span> 
+                          <div class="form-group col-4">                
+                            <input type="date" class="form-control" id="Data_end" placeholder="Data de término" name="Data_end" style="width:112px;" placeholder="Data de término">
+                          </div>                 
+                        </div>
+
+                    <div class="form-group row">
+                      <div class="col-sm-4 col-md-8 offset-sm-5 offset-md-7 ">
+                        <button type="submit" class="btn" style="font-size:14px; font-weight:500; letter-spacing:.25px;">Redefinir</button>
+                        <button type="submit" class="btn btn-primary">Pesquisar</button>
+                      </div>
+                    </div>
+                  </form>
+
+
+            </div>        
         </div>
+        <div class="no-hidden"></div>
 
 
         <div class="col-7  component_datas">
@@ -88,18 +189,41 @@
             <div class="icones-header">
                 <i class="fa fa-search buscar_pessoas_agenda"></i>
 
-                <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="interrogacao-icon">
-                    <path
-                        d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z">
-                    </path>
-                </svg>
+                <div class="div-interrogacao">
+                    <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="interrogacao-icon">
+                        <path
+                            d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 
+                            10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 
+                            3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z">
+                        </path>
+                    </svg>
+                    <div class="submenu-interrogacao">
+                        <ul style="padding:0;">
+                            <li><span>Teste 01</span></li>
+                            <li><span>Teste 02</span></li>
+                            <li><span>Teste 03</span></li>
+                        </ul>
+                    </div>
+                </div>
 
-                <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="config-icon">
-                    <path
-                        d="M13.85 22.25h-3.7c-.74 0-1.36-.54-1.45-1.27l-.27-1.89c-.27-.14-.53-.29-.79-.46l-1.8.72c-.7.26-1.47-.03-1.81-.65L2.2 15.53c-.35-.66-.2-1.44.36-1.88l1.53-1.19c-.01-.15-.02-.3-.02-.46 0-.15.01-.31.02-.46l-1.52-1.19c-.59-.45-.74-1.26-.37-1.88l1.85-3.19c.34-.62 1.11-.9 1.79-.63l1.81.73c.26-.17.52-.32.78-.46l.27-1.91c.09-.7.71-1.25 1.44-1.25h3.7c.74 0 1.36.54 1.45 1.27l.27 1.89c.27.14.53.29.79.46l1.8-.72c.71-.26 1.48.03 1.82.65l1.84 3.18c.36.66.2 1.44-.36 1.88l-1.52 1.19c.01.15.02.3.02.46s-.01.31-.02.46l1.52 1.19c.56.45.72 1.23.37 1.86l-1.86 3.22c-.34.62-1.11.9-1.8.63l-1.8-.72c-.26.17-.52.32-.78.46l-.27 1.91c-.1.68-.72 1.22-1.46 1.22zm-3.23-2h2.76l.37-2.55.53-.22c.44-.18.88-.44 1.34-.78l.45-.34 2.38.96 1.38-2.4-2.03-1.58.07-.56c.03-.26.06-.51.06-.78s-.03-.53-.06-.78l-.07-.56 2.03-1.58-1.39-2.4-2.39.96-.45-.35c-.42-.32-.87-.58-1.33-.77l-.52-.22-.37-2.55h-2.76l-.37 2.55-.53.21c-.44.19-.88.44-1.34.79l-.45.33-2.38-.95-1.39 2.39 2.03 1.58-.07.56a7 7 0 0 0-.06.79c0 .26.02.53.06.78l.07.56-2.03 1.58 1.38 2.4 2.39-.96.45.35c.43.33.86.58 1.33.77l.53.22.38 2.55z">
-                    </path>
-                    <circle cx="12" cy="12" r="3.5"></circle>
-                </svg>
+
+                <div class="config-icon-menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="config-icon">
+                        <path
+                            d="M13.85 22.25h-3.7c-.74 0-1.36-.54-1.45-1.27l-.27-1.89c-.27-.14-.53-.29-.79-.46l-1.8.72c-.7.26-1.47-.03-1.81-.65L2.2 15.53c-.35-.66-.2-1.44.36-1.88l1.53-1.19c-.01-.15-.02-.3-.02-.46 0-.15.01-.31.02-.46l-1.52-1.19c-.59-.45-.74-1.26-.37-1.88l1.85-3.19c.34-.62 1.11-.9 1.79-.63l1.81.73c.26-.17.52-.32.78-.46l.27-1.91c.09-.7.71-1.25 1.44-1.25h3.7c.74 0 1.36.54 1.45 1.27l.27 1.89c.27.14.53.29.79.46l1.8-.72c.71-.26 1.48.03 1.82.65l1.84 3.18c.36.66.2 1.44-.36 1.88l-1.52 1.19c.01.15.02.3.02.46s-.01.31-.02.46l1.52 1.19c.56.45.72 1.23.37 1.86l-1.86 3.22c-.34.62-1.11.9-1.8.63l-1.8-.72c-.26.17-.52.32-.78.46l-.27 1.91c-.1.68-.72 1.22-1.46 1.22zm-3.23-2h2.76l.37-2.55.53-.22c.44-.18.88-.44 1.34-.78l.45-.34 2.38.96 1.38-2.4-2.03-1.58.07-.56c.03-.26.06-.51.06-.78s-.03-.53-.06-.78l-.07-.56 2.03-1.58-1.39-2.4-2.39.96-.45-.35c-.42-.32-.87-.58-1.33-.77l-.52-.22-.37-2.55h-2.76l-.37 2.55-.53.21c-.44.19-.88.44-1.34.79l-.45.33-2.38-.95-1.39 2.39 2.03 1.58-.07.56a7 7 0 0 0-.06.79c0 .26.02.53.06.78l.07.56-2.03 1.58 1.38 2.4 2.39-.96.45.35c.43.33.86.58 1.33.77l.53.22.38 2.55z">
+                        </path>
+                        <circle cx="12" cy="12" r="3.5"></circle>
+                    </svg>
+                 </div>
+
+                 <div class="menuFloat submenu-icon-config" style="right:8.7%;">
+                    <ul style="padding:0;">
+                        <li><span>Teste 01</span></li>
+                        <li><span>Teste 02</span></li>
+                        <li><span>Teste 03</span></li>
+                    </ul>
+                </div>
+
             </div>
 
             <div class="bt-mes-div">
@@ -255,248 +379,4 @@
 <script src='{{ asset('js/fullcalendar.js') }}' type="text/javascript"></script>
 <script src='{{ asset('js/main.js') }}'></script>
 <script src='{{ asset('js/pt.js') }}'></script>
-<script>
-    $(document).ready(function() {
-
-        $('.pesquisar-text-header').hide();
-        $('.fc-header').remove()
-        $('.component_datas').show();
-        $('.pesquisar_pessoas').hide();
-
-        $(document).on('click', '.buscar_pessoas_agenda', function(event) {
-            toggle_elementos_no_header()
-            $('#pesquisar_header_input').focus();
-
-        })
-
-        $(document).on('click', '.no-hidden', function(event) {
-
-            toggle_elementos_no_header()
-        })
-
-
-
-
-        $('.icons-menu-bottom').click(function() {
-            $('.sider-bar').toggle();
-            $('.fc-daygrid-bod').css('width', '100%');
-            $('#calendar').addClass('col-10');
-            $('#calendar').removeClass('col-12');
-            $('#calendar').css('width', '75%');
-            if ($('.sider-bar').css('display') == 'none') {
-                $('#calendar').css('width', '100%');
-                $('#calendar').addClass('col-12');
-                $('.fc-col-header').css('width', '100%');
-                $('.fc-daygrid-body').css('width', '100%');
-                $('.fc-scrollgrid-sync-table').css('width', '100%');
-            }
-
-            calendar.render();
-
-
-
-        })
-
-        $('.component_datas').click(function() {
-            $('.select_options_de_datas').hide('fast');
-        })
-
-        $('.botao-header-datas').click(function() {
-            $('.select_options_de_datas').toggle('fast');
-        })
-
-        $('.bt-criar-evento').click(function() {
-            $('.div-criar-evento').toggle('fast');
-        })
-
-        $('#minhasAgendaLinks').click(function() {
-            $('.opcoesMinhasAgendas').toggle('fast');
-        })
-
-        $('#OutrasAgendas').click(function() {
-            $('.opcoesOutrasAgendas').toggle('fast');
-        })
-
-        $('.bt-close-modal').click(function() {
-            $('.modal').modal('hide');
-        })
-
-
-    })
-
-
-    document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            editable: true,
-
-            lang: 'pt-br',
-            headerToolbar: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth, month'
-            },
-            initialDate: '2022-05-31',
-            locale: 'pt-br',
-
-            navLinks: true, // can click day/week names to navigate views
-            businessHours: true, // display business hours
-            editable: true,
-            selectable: true,
-            events:"http://127.0.0.1:8000/api/events",
-            selectable: true,
-            selectHelper: true,
-            select: function(start, end, allDay) {
-                $('.modal').modal('show');
-            }
-        });
-
-        eventos()
-
-        calendar.render();
-
-        $('.fc-header-toolbar').hide();
-        mudarNomesDiasThCalendario()
-        $('.data-header').text($('.fc-toolbar-title').text())
-        document.getElementById('my-today-button').addEventListener('click', function() {
-            calendar.today();
-            calendar2.today();
-            $('.data-header').text($('.fc-toolbar-title').text())
-
-
-        });
-
-
-        document.getElementById('dia').addEventListener('click', function() {
-            calendar.changeView('timeGridDay');
-
-        });
-
-        document.getElementById('semana').addEventListener('click', function() {
-            calendar.changeView('timeGridWeek');
-
-
-        });
-
-        document.getElementById('mes').addEventListener('click', function() {
-            calendar.changeView('dayGridMonth');
-
-        });
-
-        document.getElementById('ano').addEventListener('click', function() {
-            calendar.changeView('yearGridMonth');
-
-        });
-
-        document.getElementById('next').addEventListener('click', function() {
-            calendar.next();
-            $('.data-header').text(calendar.currentData.viewTitle)
-
-        });
-
-        document.getElementById('prev').addEventListener('click', function() {
-            calendar.prev();
-            $('.data-header').text(calendar.currentData.viewTitle)
-
-        });
-
-
-
-
-
-        function mudarNomesDiasThCalendario() {
-            $(diasCalendario1('sun')).text('Dom')
-            $(diasCalendario1('mon')).text('Seg')
-            $(diasCalendario1('tue')).text('Ter')
-            $(diasCalendario1('wed')).text('Qua')
-            $(diasCalendario1('thu')).text('Qui')
-            $(diasCalendario1('fri')).text('Sex')
-            $(diasCalendario1('sat')).text('Sab')
-            $(diasCalendario2('sun')).text('D')
-            $(diasCalendario2('mon')).text('S')
-            $(diasCalendario2('tue')).text('T')
-            $(diasCalendario2('wed')).text('Q')
-            $(diasCalendario2('thu')).text('Q')
-            $(diasCalendario2('fri')).text('S')
-            $(diasCalendario2('sat')).text('S')
-        }
-
-    });
-
-
- 
-    var calendarE2 = document.getElementById('calendario2');
-    var calendar2 = new FullCalendar.Calendar(calendarE2, {
-        aspectRatio: 20,
-        editable: true,
-        isRTL: false,
-
-        lang: 'pt-br',
-        headerToolbar: {
-            left: 'prev,next today',
-            center: '',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
-        },
-        locale: 'pt-br',
-        navLinks: false, // can click day/week names to navigate views
-        businessHours: false, // display business hours
-        editable: true,
-        selectable: true,
-        events: [],
-        selectable: true,
-        selectHelper: true,
-        select: function(start, end, allDay) {
-            console.log(start)
-        }
-    });
-
-    calendar2.render()
-    calendar2.setOption('contentWidth', 200);
-
-
-    $('.data_calendario2').text(calendar2.currentData.viewTitle)
-    $('.fc-scroller').css('overflow', 'hidden')
-
-    document.getElementById('prev-calendario2').addEventListener('click', function() {
-        calendar2.prev();
-        $('.data_calendario2').text(calendar2.currentData.viewTitle)
-
-
-    });
-
-    document.getElementById('next-calendario2').addEventListener('click', function() {
-        calendar2.prev();
-        $('.data_calendario2').text(calendar2.currentData.viewTitle)
-
-    });
-
-    function eventos(){
-    $.get('http://127.0.0.1:8000/api/events',function(data){
-        console.log(data)
-
-    })
-}
-
-
-
-    function diasCalendario2(dia) {
-        return '#calendario2 > div.fc-view-harness.fc-view-harness-active > div > table > thead > tr > th > div > div > table > thead > tr > th.fc-col-header-cell.fc-day.fc-day-' +
-            dia + ' > div > a';
-    }
-
-    function diasCalendario1(dia) {
-        return '#calendar > div.fc-view-harness.fc-view-harness-active > div > table > thead > tr > th > div > div > table > thead > tr > th.fc-col-header-cell.fc-day.fc-day-' +
-            dia + ' > div > a';
-    }
-
-    function toggle_elementos_no_header() {
-        $('.pesquisar_pessoas').toggle();
-        $('.component_datas').toggle();
-        $('.pesquisar-text-header').toggle();
-        $('.logo').toggle();
-        $('.icons-menu-bottom').toggle();
-        $('.right-header-nav').toggle();
-
-    }
-</script>
+<script src='{{ asset('js/custumFullCalendar.js') }}'></script>

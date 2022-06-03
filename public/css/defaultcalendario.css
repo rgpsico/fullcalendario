@@ -7,6 +7,124 @@ a{
     color:#000;
 }
 
+.menuFloat{
+    padding-top:8px;
+    margin-top:12px;
+    margin-right:10px; 
+    min-width:190px;
+    min-height:110px;     
+    z-index:10;
+    position: absolute;   
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+    text-rendering: geometricPrecision;   
+    border-radius:5px;  
+    display: none;   
+  }
+  .menuFloat ul{
+      padding:0;
+
+  }
+
+  .menuFloat ul li{ 
+  text-align: left;  
+  text-decoration: none;
+  list-style: none;    
+  line-height: 1.5em;
+  cursor: pointer; 
+  box-shadow: none;  
+  min-height: 32px;  
+
+}
+
+.menuFloat ul li:hover{ 
+    background:#84848417;
+}
+
+.menuFloat ul li span{ 
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-size:14px;
+    margin-left: 30px;
+}
+
+.modal-micro{
+    width:40%;
+    height:400px;  
+    position: absolute;
+    background-color: #fff;
+    z-index: 10;
+    right:50%;
+    left:30%;
+    top:20%;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+   
+}
+
+.modal-micro-header{
+    background-color: #f1f3f4;
+    width:100%;
+    height:10%;
+    border-radius:3px;
+
+}
+.fechar-modal-micro{
+    position: absolute;
+    right:10px;
+    cursor: pointer;
+}
+.modal-micro-body{
+    height:70%;
+    background-color: #fff;
+}
+
+.modal-micro-footer{
+    border-radius:3px;
+    width:100%;
+    height:15%;
+    top:0;
+
+}
+
+.modal-micro-content{
+    width:100%;
+ 
+}
+.event-dia{
+    width:220px;
+    height:30px; 
+    margin-left:20px;
+    float:left;
+    
+}
+
+.event-hora-start{
+    width:50px;
+    height:30px;
+    float:left;
+ 
+}
+
+.event-hora-end{
+    width:50px;
+    height:30px;
+    float:left;
+    flex-wrap:wrap;
+}
+.opcoes-modal-micro{
+    width:100%;  
+}
+
+.opcoes-modal-micro ul li{
+    display: inline;
+    margin-right:19px;
+    font-weight:700;
+    color:#382f2fa1;
+}
+
+.dia-inteiro{
+    float:left;
+}
+
 #calendar{
     background: #fff;
     border:0;
@@ -93,8 +211,8 @@ a{
  }
 
  .pesquisar_pessoas{
-     width:70%;
-     margin-left:1px;
+    width:50%;
+     margin-left:70px;
      float:left;
  }
 
@@ -102,6 +220,27 @@ a{
      border-left:none;
      border-right:none; 
     
+ }
+
+ .submenu-pesquisar-principal{
+    width:100%; 
+    min-height:320px;
+    margin-top:50px;
+    padding:30px;
+    
+     
+ }
+
+ .submenu-pesquisar-principal input{
+ margin-top:10px;
+ height:36;     
+ }
+
+ .no-hidden{       
+    width:10%;
+    height:50px;
+    z-index:10;    
+ 
  }
 
 .prev{
@@ -200,18 +339,67 @@ a{
     color:#5f6368;
     opacity:0.9;
 }
+.div-interrogacao{
+    margin-right:27px; 
+    float:left;
+}
 
 .interrogacao-icon{
-    font-size:30px; 
-    margin-right:27px; 
+    font-size:30px;
     color:#5f6368;
     opacity:0.9;
+    cursor: pointer;
   }
 
-  .config-icon{
+ 
+  .submenu-interrogacao{
+    padding-top:8px;
+    width:250px;
+    min-height:110px;     
+    z-index:10;
+    display: block;
+    position: absolute;
+    margin-top:5px;
+    margin-right:10px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+    text-rendering: geometricPrecision;   
+    border-radius:5px;
+    display: none;   
+  }
+  .submenu-interrogacao ul{
+      padding:0;
+
+  }
+
+  .submenu-interrogacao ul li{ 
+  text-align: left;  
+  text-decoration: none;
+  list-style: none;    
+  line-height: 1.5em;
+  cursor: pointer; 
+  box-shadow: none;  
+  min-height: 32px;  
+
+}
+
+
+.submenu-interrogacao ul li:hover{ 
+    background:#84848417;
+}
+
+.submenu-interrogacao ul li span{ 
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-size:14px;
+    margin-left: 30px;
+}
+
+.config-icon{
     color:#5f6368;
     opacity:0.9; 
+    cursor: pointer;
   }
+
 
   .botao-header-datas{
     margin-top:1px;
@@ -526,13 +714,7 @@ width:500px;
     cursor: pointer;
 }
 
-.no-hidden{       
-    width:119%;
-    height:50px;
-    position:absolute;
-    z-index:10;
-    left:620px;    
- }
+
 
  .fc-day-grid-event > .fc-content {
     white-space: normal;
