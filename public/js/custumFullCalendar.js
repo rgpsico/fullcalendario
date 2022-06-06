@@ -1,18 +1,25 @@
-$(document).ready(function () {
+$(document).ready(function () {  
+    let bt_eventos = document.querySelector('.bt-eventos');
+    let bt_tarefa = document.querySelector('.bt-tarefa');
+    let bt_lembrete = document.querySelector('.bt-lembrete');
+
+    
+    $( "#example" ).datepicker();
 
     $('.pesquisar-text-header').hide();
     $('.fc-header').remove()
     $('.component_datas').show();
     $('.pesquisar_pessoas').hide();
+    $(".modal-micro").draggable();
 
+    
     $(document).on('click', '.buscar_pessoas_agenda', function (event) {
         toggle_elementos_no_header()
         $('#pesquisar_header_input').focus();
-
     })
 
     $('.fechar-modal-micro').click(function(){
-        $('.modal-micro').toggle();
+        $('.modal-micro').fadeOut('slow');
     })
 
 
@@ -88,6 +95,34 @@ $(document).ready(function () {
     })
 
 
+
+  
+
+    bt_eventos.addEventListener('click',() => {
+        $('.abaEventos').show()
+        $('.abaTarefas').hide()
+        $('.abaLembrete').hide()
+    })
+  
+    bt_tarefa.addEventListener('click',() => {
+        $('.abaEventos').hide()
+        $('.abaTarefas').show()
+        $('.abaLembrete').hide()
+        })
+
+    bt_lembrete.addEventListener('click',() => {
+        $('.abaEventos').hide()
+        $('.abaTarefas').hide()
+        $('.abaLembrete').show()
+    });
+
+   
+
+    $('#bt-evento-side-bar').click(function(){
+        $('.modal-micro').fadeIn('slow')
+        $('.div-criar-evento').fadeOut()
+    })
+
 })
 
 
@@ -117,20 +152,17 @@ document.addEventListener('DOMContentLoaded', function () {
            console.log(start)
         }
     });
-
-
-
     calendar.render();
 
     $('.fc-header-toolbar').hide();
     mudarNomesDiasThCalendario()
     $('.data-header').text($('.fc-toolbar-title').text())
+    
+    
     document.getElementById('my-today-button').addEventListener('click', function () {
         calendar.today();
         calendar2.today();
         $('.data-header').text($('.fc-toolbar-title').text())
-
-
     });
 
 
@@ -168,10 +200,6 @@ document.addEventListener('DOMContentLoaded', function () {
         $('.data-header').text(calendar.currentData.viewTitle)
 
     });
-
-
-
-
 
     function mudarNomesDiasThCalendario() {
         $(diasCalendario1('sun')).text('Dom')
@@ -260,3 +288,32 @@ function toggle_elementos_no_header() {
     $('.right-header-nav').toggle();
 
 }
+
+
+/**
+ * Modal micro-sistem
+ * 
+ */
+document.querySelector('.dia_inteiro_tarefa').addEventListener('click',() =>{
+    if($('#dia_inteiro_tarefa').is(':checked')){
+        $('.tempo_tarefa').hide()
+        return;        }
+        $('.tempo_tarefa').show()
+})
+
+document.querySelector('.dia_inteiro_lembrete').addEventListener('click',() =>{
+    if($('.dia_inteiro_lembrete').is(':checked')){
+        $('.hora_lembrete').hide()
+        return;        }
+        $('.hora_lembrete').show()
+});
+
+document.querySelector('.dia_inteiro_evento').addEventListener('click',() =>{
+    if($('.dia_inteiro_evento').is(':checked')){
+        $('.hora_evento_div').hide()
+        $('.data_fim_evento').show()
+        return;        }
+        $('.hora_evento_div').show()
+        $('.data_fim_evento').hide()
+});
+

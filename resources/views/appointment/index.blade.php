@@ -6,9 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link href=' {{ asset('css/fullcalendar.css') }}' rel='stylesheet' />
     <link href=' {{ asset('css/fullcalendar.print.css') }}' rel='stylesheet' media='print' />
     <link href=' {{ asset('css/defaultcalendario.css') }}' rel='stylesheet' />
@@ -17,43 +16,217 @@
 
 
 
-    <div class="modal-micro">        
-            <div class="modal-micro-header">
-                <span class="fechar-modal-micro" alt="Fechar Modal">X</span>
+    <div class="modal-micro my-2">        
+        <div class="modal-micro-header bg-light" style="height:40px;">
+            <div class="row">
+                <div class="col-3 my-2">
+                    <span class="fechar-modal-micro" alt="mover Modal" style="margin-left:5px;">
+                        <i class="fa fa-align-left" aria-hidden="true" style="cursor:move;"></i>
+                    </span>
+                </div>
+
+                <div class="col-1 my-1  offset-8">
+                    <span class="fechar-modal-micro" alt="Fechar Modal">
+                        <span class="fechar-modal-micro my-1 col-1 offset-10" alt="Fechar Modal">&times;</span>
+                    </span>
+                </div>
+           
+              
+               
             </div>
-            <div class="modal-micro-body">
-                <div class="input-group col-6">
-                    <input type="text" class="form-control" placeholder="Adicionar Titulo" style="width:50%;">
+           
+        </div>
+        <div class="modal-micro-body my-4">
+            <div class="row">
+                <div class="col-12 col-md-10 offset-2">
+                    <input type="text" class="form-control" placeholder="Adicionar Titulo" 
+                    style="border:none;  border-bottom:1px solid #ccc; font-size:24px;">
                 </div>               
-                <div class="opcoes-modal-micro p-1">
+                <div class="opcoes-modal-micro p-3 col-2 offset-1">
                     <ul>
-                        <li>Evento</li>
-                        <li>Tarefa</li>
-                        <li>Lembrete</li>
-                        <li>Agendamento de horarios</li>
+                        <li class="bt-eventos">Evento</li>
+                        <li class="bt-tarefa">Tarefa</li>
+                        <li class="bt-lembrete">Lembrete</li>
+                        <!-- <li>Agendamento de horarios</li> -->
                     </ul>
                 </div>
+             </div>
+             <div class="row abaLembrete">                 
+                    <div class="col-1" style="margin-left:30px;">
+                        <i class="fa fa-user"></i>                 
+                    </div>
+                    <div class="col-4">
+                        <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker" inline="true">
+                            <input placeholder="Select date" type="text" id="example" class="form-control">
+                            <label for="example">Try me...</label>
+                            <i class="fas fa-calendar input-prefix"></i>
+                          </div>
+                     
+                    </div>
+                    <div class="col-4 hora_lembrete">
+                        <label for="">Hora do  Lembrete</label>
+                        <input type="time" class="border-0" id="hora_lembrete">
+                    </div>
 
-                <div class="modal-micro-content col-12 d-inline"> 
-                    <div class="event-dia">Terça-feira, 1 de fevereiro</div>     
-                    <div class="event-hora-start">4:30pm</div>-
-                    <div class="event-hora-end">5:30pm</div>    
-                </div>
-
-               
-                    <div class="event-hora-start"></div>  
-                    <div class="event-hora-end"></div>  
+                    <div class="row my-4">
+                        <div class="col-1" style="margin-left:30px;">
+                            <i class="fa fa-user"></i>                 
+                        </div>
+                        <div class="col-4">
+                            <select class="form-control border-0" id="exampleFormControlSelect1">
+                                <option>Não se repete</option>
+                                <option>Todos os dias</option>
+                                <option>Semanal: cada sexta-feira</option>
+                                <option>Mensal no (a) sexta-feira</option>
+                                <option>Anual em abril 1</option>
+                                <option>Todos os dias da semana (segunda a sexta-feita)</option>
+                                <option>Personalizar</option>
+                            </select>                             
+                        </div>
+                        <div class="col-3">
+                            <input type="checkbox" class="form-check-input dia_inteiro_lembrete">
+                            <label class="form-check-label">Dia inteiro</label>
+                        </div>
+                     
+                    </div>
             
+                
 
-            </div>
-            <div class="modal-micro-footer">
-                <div class="col-md-12">
-                 <button class="btn"> Mais opções</button>
-                <div class="btn btn-primary">Salvar</div>
+             </div>
+             <div class="row abaTarefas">
+                    <div class="col-1" style="margin-left:28px;">
+                        <i class="fa-thin fa-clock-one"></i>
+                    </div>               
+                    <div class="col-4">
+                        <input type="date" type="date" class="" placeholder="data">
+                    </div>
+                    <div class="col-2">
+                        <input type="time" type="date" class="tempo_tarefa" placeholder="data">
+                    </div>
+                   
+                        <div class="form-check col-3 my-3 " style="margin-left:90px;">
+                            <input type="checkbox" class="form-check-input dia_inteiro_tarefa" id="dia_inteiro_tarefa">
+                            <label class="form-check-label" for="dia_inteiro_tarefa">Dia inteiro</label>
+                        </div>
+                   
+
+                    <div class="col-4 offset-1 my-2" style="margin-left:75px;">
+                        <div class="form-group">                          
+                            <select class="form-control border-0" id="exampleFormControlSelect1">
+                                <option>Não se repete</option>
+                                <option>Todos os dias</option>
+                                <option>Semanal: cada sexta-feira</option>
+                                <option>Mensal no (a) sexta-feira</option>
+                                <option>Anual em abril 1</option>
+                                <option>Todos os dias da semana (segunda a sexta-feita)</option>
+                                <option>Personalizar</option>
+                              </select>
+                        </div>
+                    </div>
+
+                    <div class="row my-4">
+                        <div class="col-1" style="margin-left:30px;">
+                            <i class="fa fa-align-left" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-10">
+                            <textarea name="" id="" cols="30" rows="5" class="form-control bg-light border-light" placeholder="Adicionar uma descrição"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-1 my-3" style="margin-left:40px;">
+                        <i class="fa-solid fa-align-justify"></i>
+                    </div>
+
+                    <div class="col-5 my-3">
+                        <div class="form-group">                          
+                            <select class="form-control border-0" id="exampleFormControlSelect1">
+                              <option>Minhas tarefas</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            
+            <div class="modal-micro-content abaEventos col-12" style="padding-left:50px ;"> 
+                <div class="row" >
+                    <div class="col-1">
+                        <i class="far fa-clock my-2" style="margin-right:20px;"></i>
+                    </div>                        
+                    <div class="col-4">                  
+                        <label for="">Data do evento</label>
+                        <input type="date"  placeholder="Date" onfocus="(this.type='date')" id="date" style="border:none;" >
+                    </div>
+                    <div class="col-5 data_fim_evento" style="display:none;">
+                        <label for="">Data final do evento</label>
+                        <input type="date"  placeholder="Date" onfocus="(this.type='date')" id="date" style="border:none;" >
+                    </div>
+                    <div class="col-3 hora_evento_div">
+                        <label for="">Hora inicio</label>
+                        <input type="time" id="appt" name="appt" min="09:00" max="18:00" >
+                    </div>
+                    
+                    <div class="col-2 hora_evento_div">
+                        <label for="">Hora fim</label>
+                         <input type="time" id="appt" name="appt" min="09:00" max="18:00"  placeholder="10:00">
+                    </div>
+                </div>
+                 
+               
 
+                <div class="row my-2 offset-1">
+                    <div class="form-check col-3">
+                        <input type="checkbox" class="form-check-input dia_inteiro_evento" id="dia_inteiro_evento">
+                        <label class="form-check-label" for="dia_inteiro_evento">Dia inteiro</label>
+                    </div>
+                    <!-- <div class="col-4">Fuso horario</div> -->
+                </div>
+
+                <div class="row">
+                    <div class="col-12" style="margin-left:30px ;">
+                        <div class="form-group">                          
+                            <select class="form-control border-0" id="exampleFormControlSelect1">
+                              <option>Não se repete</option>
+                              <option>Todos os dias</option>
+                              <option>Semanal: cada sexta-feira</option>
+                              <option>Mensal no (a) sexta-feira</option>
+                              <option>Anual em abril 1</option>
+                              <option>Todos os dias da semana (segunda a sexta-feita)</option>
+                              <option>Personalizar</option>
+                            </select>
+                        </div>
+                    </div>            
+                    <div class="col-12" style="margin-left:40px;">
+                        <span class="text-primary font-weight-bold"><b> Encontrar um horário </b> </span>
+                    </div>
+                </div>
+                    <div class="row">                         
+                        <ul style="list-style-type: none;">                         
+                            <li>
+                                <i class="fa-user fas fa-map-marker-alt my-3" style="margin-right:20px;"></i> 
+                                <input type="text" class="border-0" placeholder="Adicionar convidado" >
+                            </li>
+                            <li class="border-top-1 border-light">
+                                <i class="fa-spacing fas fa-map-marker-alt my-3" style="margin-right:20px;">
+                                </i>   <input type="text" class="border-0" placeholder="Adicionar Local" >
+                            </li>
+                            <li><i class="fa fa-align-left my-3" style="margin-right:20px;">
+                            
+                            </i> 
+                            <input type="text" class="border-0" placeholder="Adicionar Descrição ou anexos" ></li>
+                            <li><i class="fa fa-calendar-alt my-3" style="margin-right:20px;"></i> Aluno</li>
+                          </ul>
+                    </div>
+                    <div class="col-md-6 my-3 offset-7">
+                        <button class="btn"> Mais opções</button>
+                        <div class="btn btn-primary">Salvar</div>
+                    </div>
+            </div>               
+        </div>    
     </div>
+</div>
 
     <nav class="navbar navbar-expand-sm nav-menu  col-lg-11 col-xl-12" style="background: #fff">
 
@@ -283,7 +456,7 @@
 
             <div class="div-criar-evento">
                 <ul>
-                    <li><a href="#"> Evento</a> </li>
+                    <li><a href="#" id="bt-evento-side-bar"> Evento</a> </li>
                     <li><a href="#">Tarefa</a></li>
                     <li><a href="#">Agendamento de horários</a></li>
 
@@ -374,9 +547,10 @@
 
 
 
-<script src='{{ asset('js/jquery-1.10.2.js') }}' type="text/javascript"></script>
-<script src='{{ asset('js/jquery-ui.custom.min.js') }}' type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <script src='{{ asset('js/fullcalendar.js') }}' type="text/javascript"></script>
 <script src='{{ asset('js/main.js') }}'></script>
 <script src='{{ asset('js/pt.js') }}'></script>
 <script src='{{ asset('js/custumFullCalendar.js') }}'></script>
+
