@@ -12,6 +12,14 @@ class EventsController extends Controller
 
     public function index()
     {
-        return EventResponse::collection(Events::all());
+        return  response()->json(Events::all());
+    }
+
+    public function store(Request $request)
+    {
+        $request->all();
+        if ($create = Events::create($request->all())) {
+            return  response()->json('Cadastrado com Successo');
+        }
     }
 }

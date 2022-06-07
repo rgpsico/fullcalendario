@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link href=' {{ asset('css/fullcalendar.css') }}' rel='stylesheet' />
     <link href=' {{ asset('css/fullcalendar.print.css') }}' rel='stylesheet' media='print' />
     <link href=' {{ asset('css/defaultcalendario.css') }}' rel='stylesheet' />
@@ -39,8 +40,13 @@
         <div class="modal-micro-body my-4">
             <div class="row">
                 <div class="col-12 col-md-10 offset-2">
-                    <input type="text" class="form-control" placeholder="Adicionar Titulo" 
+                    <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="title" placeholder="Adicionar Titulo"  required
                     style="border:none;  border-bottom:1px solid #ccc; font-size:24px;">
+                    <div class="invalid-feedback">
+                        O titulo é obrigátorio
+                      </div>
+                    </div>
                 </div>               
                 <div class="opcoes-modal-micro p-3 col-2 offset-1">
                     <ul>
@@ -155,20 +161,20 @@
                     <div class="col-1">
                         <i class="far fa-clock my-2" style="margin-right:20px;"></i>
                     </div>                        
-                    <div class="col-4">                  
+                    <div class="col-4 col-lg-3">                  
                         <label for="">Data do evento</label>
-                        <input type="date"  placeholder="Date" onfocus="(this.type='date')" id="date" style="border:none;" >
+                        <input type="date"  placeholder="Date"  id="start" style="border:none;" >
                     </div>
                     <div class="col-5 data_fim_evento" style="display:none;">
                         <label for="">Data final do evento</label>
-                        <input type="date"  placeholder="Date" onfocus="(this.type='date')" id="date" style="border:none;" >
+                        <input type="date"  placeholder="Date"  id="end" style="border:none;" >
                     </div>
-                    <div class="col-3 hora_evento_div">
+                    <div class="col-3 col-lg-2 hora_evento_div">
                         <label for="">Hora inicio</label>
                         <input type="time" id="appt" name="appt" min="09:00" max="18:00" >
                     </div>
                     
-                    <div class="col-2 hora_evento_div">
+                    <div class="col-2  col-lg-3 hora_evento_div">
                         <label for="">Hora fim</label>
                          <input type="time" id="appt" name="appt" min="09:00" max="18:00"  placeholder="10:00">
                     </div>
@@ -221,7 +227,7 @@
                     </div>
                     <div class="col-md-6 my-3 offset-7">
                         <button class="btn"> Mais opções</button>
-                        <div class="btn btn-primary">Salvar</div>
+                        <div class="btn btn-primary salvar_form">Salvar</div>
                     </div>
             </div>               
         </div>    

@@ -10,3 +10,4 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/events', [EventsController::class, 'index'])->name('events');
+Route::post('/events/create', [EventsController::class, 'store'])->name('store');

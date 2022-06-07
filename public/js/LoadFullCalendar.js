@@ -3,26 +3,7 @@ $(document).ready(function () {
     let bt_tarefa = document.querySelector('.bt-tarefa');
     let bt_lembrete = document.querySelector('.bt-lembrete');
 
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-        }
-    });
-
-
-    $('.salvar_form').click(function(){
-        $.ajax({
-            url:'api/events/create',
-            method:"POST",
-            data:{title:$('#title').val(),start:$('#start').val(),end:$('#end').val()},
-            success:function(data){
-                 swal(data);         
-                calendar.refetchEvents()
-               
-            }
-        })
-  
-    })
+    
     $( "#example" ).datepicker();
 
     $('.pesquisar-text-header').hide();
@@ -142,35 +123,31 @@ $(document).ready(function () {
         $('.div-criar-evento').fadeOut()
     })
 
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+        }
+    });
+
+  
+
 })
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    var calendarEl = document.getElementById('calendar');
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        editable: true,
 
-        lang: 'pt-br',
-        headerToolbar: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth, month'
-        },
-        initialDate: '2022-05-31',
-        locale: 'pt-br',
-
-        navLinks: true, // can click day/week names to navigate views
-        businessHours: true, // display business hours
-        editable: true,
-        selectable: true,
-        events: "http://127.0.0.1:8000/api/events",
-        selectable: true,
-        selectHelper: true,
-        select: function (start, end, allDay) {
-           $('.modal-micro').show()
-        }
-    });
+    $('.salvar_form').click(function(){
+        $.ajax({
+            url:'api/events/create',
+            method:"POST",
+            data:{title:$('#title').val(),start:$('#start').val(),end:$('#end').val()},
+            success:function(data){
+                swal(data);
+                calendar.refetchEvents()
+            }
+        })
+  
+    })
     calendar.render();
 
     $('.fc-header-toolbar').hide();
@@ -220,24 +197,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     });
 
-    function mudarNomesDiasThCalendario() {
-        $(diasCalendario1('sun')).text('Dom')
-        $(diasCalendario1('mon')).text('Seg')
-        $(diasCalendario1('tue')).text('Ter')
-        $(diasCalendario1('wed')).text('Qua')
-        $(diasCalendario1('thu')).text('Qui')
-        $(diasCalendario1('fri')).text('Sex')
-        $(diasCalendario1('sat')).text('Sab')
-        $(diasCalendario2('sun')).text('D')
-        $(diasCalendario2('mon')).text('S')
-        $(diasCalendario2('tue')).text('T')
-        $(diasCalendario2('wed')).text('Q')
-        $(diasCalendario2('thu')).text('Q')
-        $(diasCalendario2('fri')).text('S')
-        $(diasCalendario2('sat')).text('S')
-    }
-
-});
 
 
 
