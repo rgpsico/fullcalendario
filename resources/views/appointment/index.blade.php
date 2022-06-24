@@ -42,11 +42,9 @@
                 <div class="col-12 col-md-10 offset-2">
                     <div class="input-group has-validation">
                     <input type="text" class="form-control" id="title" placeholder="Adicionar Titulo"  required
-                    style="border:none;  border-bottom:1px solid #ccc; font-size:24px;">
-                    <div class="invalid-feedback">
-                        O titulo é obrigátorio
-                      </div>
+                    style="border:none;  border-bottom:1px solid #ccc; font-size:24px;" value="evento teste">                 
                     </div>
+                    <span class="text-danger" id="titleError"></span>
                 </div>               
                 <div class="opcoes-modal-micro p-3 col-2 offset-1">
                     <ul>
@@ -79,7 +77,7 @@
                             <i class="fa fa-user"></i>                 
                         </div>
                         <div class="col-4">
-                            <select class="form-control border-0" id="exampleFormControlSelect1">
+                            <select class="form-control border-0" id="" style="width:200px;">
                                 <option>Não se repete</option>
                                 <option>Todos os dias</option>
                                 <option>Semanal: cada sexta-feira</option>
@@ -154,35 +152,40 @@
                             </select>
                         </div>
                     </div>
+
+                    <div class="col-md-6 my-3 offset-7">
+                        <button class="btn"> Mais opções</button>
+                        <div class="btn btn-primary salvar_form">Salvar</div>
+                    </div>
                 </div>
             
             <div class="modal-micro-content abaEventos col-12" style="padding-left:50px ;"> 
                 <div class="row" >
-                    <div class="col-1">
-                        <i class="far fa-clock my-2" style="margin-right:20px;"></i>
+                    <div style="width:40px;">
+                        <i class="far fa-clock" style="margin-right:20px;"></i>
                     </div>                        
                     <div class="col-4 col-lg-3">                  
                         <label for="">Data do evento</label>
-                        <input type="date"  placeholder="Date"  id="start" style="border:none;" >
+                        <input type="date"  placeholder="Date"  id="start-evento" style="border:none;" >
                     </div>
-                    <div class="col-5 data_fim_evento" style="display:none;">
+                    <div class="col-5 col-lg-3 data_fim_evento" style="display:none;">
                         <label for="">Data final do evento</label>
-                        <input type="date"  placeholder="Date"  id="end" style="border:none;" >
+                        <input type="date"  placeholder="Date"  id="end-evento" style="border:none;" >
                     </div>
-                    <div class="col-3 col-lg-2 hora_evento_div">
+                    <div class="col-3 col-lg-2 hora_evento_inicio_div">
                         <label for="">Hora inicio</label>
-                        <input type="time" id="appt" name="appt" min="09:00" max="18:00" >
+                        <input type="time" id="hora_inicio_evento" name="hora_inicio_evento" min="09:00" max="18:00" >
                     </div>
                     
-                    <div class="col-2  col-lg-3 hora_evento_div">
+                    <div class="col-2  col-lg-2 hora_evento_fim_div">
                         <label for="">Hora fim</label>
-                         <input type="time" id="appt" name="appt" min="09:00" max="18:00"  placeholder="10:00">
+                         <input type="time" id="hora_fim_evento" name="hora_fim_evento" min="09:00" max="18:00"  placeholder="10:00">
                     </div>
                 </div>
                  
                
 
-                <div class="row my-2 offset-1">
+                <div class="row my-2" style="margin-left:35px;">
                     <div class="form-check col-3">
                         <input type="checkbox" class="form-check-input dia_inteiro_evento" id="dia_inteiro_evento">
                         <label class="form-check-label" for="dia_inteiro_evento">Dia inteiro</label>
@@ -191,7 +194,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12" style="margin-left:30px ;">
+                    <div class="col-3" style="margin-left:35px;">
                         <div class="form-group">                          
                             <select class="form-control border-0" id="exampleFormControlSelect1">
                               <option>Não se repete</option>
@@ -208,20 +211,20 @@
                         <span class="text-primary font-weight-bold"><b> Encontrar um horário </b> </span>
                     </div>
                 </div>
-                    <div class="row">                         
-                        <ul style="list-style-type: none;">                         
+                    <div class="row  my-3">                         
+                        <ul style="list-style-type:none;">                         
                             <li>
                                 <i class="fa-user fas fa-map-marker-alt my-3" style="margin-right:20px;"></i> 
-                                <input type="text" class="border-0" placeholder="Adicionar convidado" >
+                                <input type="text" class="border-0" placeholder="Adicionar convidado" id="adicionar_convidado" style="height:40px;" >
                             </li>
-                            <li class="border-top-1 border-light">
+                            <li class="border-top-1 border-light my-3">
                                 <i class="fa-spacing fas fa-map-marker-alt my-3" style="margin-right:20px;">
-                                </i>   <input type="text" class="border-0" placeholder="Adicionar Local" >
+                                </i>   <input type="text" class="border-0" placeholder="Adicionar Local"  id="adicionar_local" style="height:40px;" >
                             </li>
                             <li><i class="fa fa-align-left my-3" style="margin-right:20px;">
                             
                             </i> 
-                            <input type="text" class="border-0" placeholder="Adicionar Descrição ou anexos" ></li>
+                            <input type="text" class="border-0" placeholder="Adicionar Descrição ou anexos"  id="adicionar_anexo" style="height:40px;" ></li>
                             <li><i class="fa fa-calendar-alt my-3" style="margin-right:20px;"></i> Aluno</li>
                           </ul>
                     </div>
@@ -559,4 +562,5 @@
 <script src='{{ asset('js/main.js') }}'></script>
 <script src='{{ asset('js/pt.js') }}'></script>
 <script src='{{ asset('js/custumFullCalendar.js') }}'></script>
+<script src="https://momentjs.com/downloads/moment.js"></script>
 

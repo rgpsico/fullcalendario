@@ -18,8 +18,33 @@ class EventsController extends Controller
     public function store(Request $request)
     {
         $request->all();
-        if ($create = Events::create($request->all())) {
-            return  response()->json('Cadastrado com Successo');
+
+        $request->validate([
+            'title' => 'required|string'
+        ]);
+
+        if ($evento = Events::create($request->all())) {
+            return  response()->json($evento);
+        }
+    }
+
+
+    public function update(Request $request, $id)
+    {
+        if ($create = Events::find($id)->update([
+            'title' => $request->title,
+            'start' => $request->start,
+            'end' => $request->end
+        ])) {
+            return  response()->json('atualizado com Successo');
+        }
+    }
+
+    public function destroy($id)
+    {
+
+        if ($destroy = Events::find($id)->delete()) {
+            return  response()->json('Excluir com Successo');
         }
     }
 }

@@ -1,4 +1,4 @@
-$(document).ready(function () {  
+$(document).ready(function () {
     let bt_eventos = document.querySelector('.bt-eventos');
     let bt_tarefa = document.querySelector('.bt-tarefa');
     let bt_lembrete = document.querySelector('.bt-lembrete');
@@ -9,21 +9,8 @@ $(document).ready(function () {
         }
     });
 
-
-    $('.salvar_form').click(function(){
-        $.ajax({
-            url:'api/events/create',
-            method:"POST",
-            data:{title:$('#title').val(),start:$('#start').val(),end:$('#end').val()},
-            success:function(data){
-                 swal(data);         
-                calendar.refetchEvents()
-               
-            }
-        })
-  
-    })
-    $( "#example" ).datepicker();
+    
+    $("#example").datepicker();
 
     $('.pesquisar-text-header').hide();
     $('.fc-header').remove()
@@ -31,13 +18,13 @@ $(document).ready(function () {
     $('.pesquisar_pessoas').hide();
     $(".modal-micro").draggable();
 
-    
+
     $(document).on('click', '.buscar_pessoas_agenda', function (event) {
         toggle_elementos_no_header()
         $('#pesquisar_header_input').focus();
     })
 
-    $('.fechar-modal-micro').click(function(){
+    $('.fechar-modal-micro').click(function () {
         $('.modal-micro').fadeOut('slow');
     })
 
@@ -115,69 +102,203 @@ $(document).ready(function () {
 
 
 
-  
+    $('.abaEventos').hide()
+    $('.abaTarefas').hide()
+    $('.abaLembrete').hide()
 
-    bt_eventos.addEventListener('click',() => {
-        $('.abaEventos').show()
-        $('.abaTarefas').hide()
-        $('.abaLembrete').hide()
+    bt_eventos.addEventListener('click', () => {
+        abaModal('eventos')
     })
-  
-    bt_tarefa.addEventListener('click',() => {
-        $('.abaEventos').hide()
-        $('.abaTarefas').show()
-        $('.abaLembrete').hide()
-        })
 
-    bt_lembrete.addEventListener('click',() => {
-        $('.abaEventos').hide()
-        $('.abaTarefas').hide()
-        $('.abaLembrete').show()
+    bt_tarefa.addEventListener('click', () => {
+        abaModal('tarefas')
+    })
+
+    bt_lembrete.addEventListener('click', () => {
+        abaModal('lembrete')
     });
 
-   
 
-    $('#bt-evento-side-bar').click(function(){
+    $('#bt-evento-side-bar').click(function () {
         $('.modal-micro').fadeIn('slow')
+        abaModal('eventos')
         $('.div-criar-evento').fadeOut()
+
     })
 
 })
 
 
 document.addEventListener('DOMContentLoaded', function () {
+
+    function create(){
+        $.ajax({
+            url: 'api/events/create',
+            method: "POST",
+            data: { title: $('#title').val(), start: $('#start-evento').val(), end: $('#end').val() },
+            success: function (data) {                
+                calendar.refetchEvents
+                swal(data);
+            }
+        })
+    }
+
+
+    function update(id){
+        $.ajax({
+            url: 'api/events/update',
+            method: "POST",
+            data: { title: title, start: start, end: end, id:id },
+            success: function (data) {                
+                calendar.fullCalendar('refetchEvents')
+                swal(data);
+            }
+        })
+    }
+
+
+    function destroy(id){
+        $.ajax({
+            url: 'api/events/destroy/'+id,
+            method: "DELETE",         
+            success: function (data) {                
+                calendar.refetchEvents
+                swal(data);
+            }
+        })
+    }
+
+
+    
+    $('.salvar_form').click(function () {
+        let start  = $('#start-evento').val();
+        let end  = $('#end').val();
+        if($('#hora_inicio_evento').val() != '' || $('#hora_fim').val() != ''){
+            let hora_inicio = $('#hora_inicio_evento').val()
+            let hora_fim = $('#hora_fim_evento').val();
+              start = $('#start-evento').val()+' '+hora_inicio;
+              end = $('#start-evento').val()+' '+hora_fim;
+        }
+
+        $.ajax({
+            url: 'api/events/create',
+            method: "POST",
+            data: { title: $('#title').val(), start: start, end:end },
+            success: function (response) {                       
+                calendar.refetchEvents()
+                swal(response);
+                $('.modal-micro').hide()
+            },
+            error:function(error){
+                console.log(error)           
+            }
+        })
+
+    })
+
+
+
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
         editable: true,
-
+        height: 900,
         lang: 'pt-br',
         headerToolbar: {
             left: 'prev,next today',
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth, month'
         },
-        initialDate: '2022-05-31',
+        //initialDate: new date('Y-d-m'),
         locale: 'pt-br',
 
         navLinks: true, // can click day/week names to navigate views
         businessHours: true, // display business hours
-        editable: true,
+      
         selectable: true,
-        events: "http://127.0.0.1:8000/api/events",
+        events: "api/events",
         selectable: true,
         selectHelper: true,
-        select: function (start, end, allDay) {
-           $('.modal-micro').show()
+        select: function (start, end, allDay) {           
+            var title = $('#title').val()
+            var start_date = moment(start.startStr).format('YYYY-MM-DD');       
+            var end_date = moment(end).format('YYYY-MM-DD');           
+            $('#start-evento').val(start_date)
+            $('.modal-micro').show()
+            abaModal('eventos')           
+        },
+        editable: true,
+        eventResize: function(event, delta) {     
+            data = {
+                title:title,
+                start:start,
+                end:end,
+                id:id,
+                type:'update'
+            }      
+        },      
+        eventDrop: function(event){
+            console.log(event)
+            newDate = event.event._instance.range
+            var start = moment(newDate.start, "DD-MM-YYYY").add(1, 'days');
+          
+            var start_date = moment(start).format('YYYY-MM-DD');
+            var end_date = moment(newDate.end).format('YYYY-MM-DD');
+            console.log(start_date)
+            data = event.event._def
+            id = data.publicId
+            title = data.title
+            $.ajax({
+                url: 'api/events/update/'+id,
+                method: "patch",
+                data:{start:start_date, end:end_date, title:title},         
+                success: function (data) {   
+                
+                    swal(data);
+                    calendar.refetchEvents()
+                   
+                }
+                   
+            })
+            
+
+        },
+        eventClick:((event)=>{     
+
+            data = event.event._def
+            id = data.publicId
+            if(confirm('Você realmente deseja excluir?')){
+            $.ajax({
+                url: 'api/events/destroy/'+id,
+                method: "delete",                   
+                success: function (data) {  
+                    swal(data);
+                    calendar.refetchEvents()
+                   
+                }           
+            })
         }
+    })
+    // selectAllow: function(event)
+    // {
+    //     // return moment(event.start).utcOffset(false).isSame(moment(event.end).subtract(1,'second').utcOffset(false), 'day');
+    // }
+        
     });
+   
     calendar.render();
+    $('.fs-event').css('font-size','5px');
+    $('#betModal').on("hidden.bs.modal", function(){
+        $('#saveBtn').unbind();
+    })
+   
+
 
     $('.fc-header-toolbar').hide();
     mudarNomesDiasThCalendario()
     $('.data-header').text($('.fc-toolbar-title').text())
-    
-    
+
+
     document.getElementById('my-today-button').addEventListener('click', function () {
         calendar.today();
         calendar2.today();
@@ -206,7 +327,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     });
 
-   
+
 
     document.getElementById('next').addEventListener('click', function () {
         calendar.next();
@@ -239,6 +360,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+function abaModal(aba) {
+    switch (aba) {
+        case 'eventos':
+            $('.abaEventos').show()
+            $('.abaTarefas').hide()
+            $('.abaLembrete').hide()
+            break;
+
+        case 'tarefas':
+            $('.abaEventos').hide()
+            $('.abaTarefas').show()
+            $('.abaLembrete').hide()
+            break;
+
+
+        case 'lembrete':
+            $('.abaEventos').hide()
+            $('.abaTarefas').hide()
+            $('.abaLembrete').show()
+            break;
+
+        default:
+
+    }
+}
+
 
 
 var calendarE2 = document.getElementById('calendario2');
@@ -262,7 +409,7 @@ var calendar2 = new FullCalendar.Calendar(calendarE2, {
     selectable: true,
     selectHelper: true,
     select: function (start, end, allDay) {
-        console.log(start)
+        
     }
 });
 
@@ -313,26 +460,34 @@ function toggle_elementos_no_header() {
  * Modal micro-sistem
  * 
  */
-document.querySelector('.dia_inteiro_tarefa').addEventListener('click',() =>{
-    if($('#dia_inteiro_tarefa').is(':checked')){
+document.querySelector('.dia_inteiro_tarefa').addEventListener('click', () => {
+    if ($('#dia_inteiro_tarefa').is(':checked')) {
         $('.tempo_tarefa').hide()
-        return;        }
-        $('.tempo_tarefa').show()
+        return;
+    }
+    $('.tempo_tarefa').show()
 })
 
-document.querySelector('.dia_inteiro_lembrete').addEventListener('click',() =>{
-    if($('.dia_inteiro_lembrete').is(':checked')){
+document.querySelector('.dia_inteiro_lembrete').addEventListener('click', () => {
+    if ($('.dia_inteiro_lembrete').is(':checked')) {
         $('.hora_lembrete').hide()
-        return;        }
-        $('.hora_lembrete').show()
+        return;
+    }
+    $('.hora_lembrete').show()
 });
 
-document.querySelector('.dia_inteiro_evento').addEventListener('click',() =>{
-    if($('.dia_inteiro_evento').is(':checked')){
-        $('.hora_evento_div').hide()
+document.querySelector('.dia_inteiro_evento').addEventListener('click', () => {
+    if ($('.dia_inteiro_evento').is(':checked')) {
+        $('.hora_evento_inicio_div').hide()
+        $('.hora_evento_fim_div').hide()
         $('.data_fim_evento').show()
-        return;        }
-        $('.hora_evento_div').show()
-        $('.data_fim_evento').hide()
+        return;
+    }
+    $('.hora_evento_inicio_div').show()
+    $('.hora_evento_fim_div').show()
+    $('.data_fim_evento').hide()
 });
+
+
+
 
