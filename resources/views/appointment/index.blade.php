@@ -168,11 +168,11 @@
                         <label for="">Data do evento</label>
                         <input type="date"  placeholder="Date"  id="start-evento" style="border:none;" >
                     </div>
-                    <div class="col-5 col-lg-3 data_fim_evento" style="display:none;">
+                    <div class="col-5 col-lg-4 data_fim_evento" style="display:none;">
                         <label for="">Data final do evento</label>
                         <input type="date"  placeholder="Date"  id="end-evento" style="border:none;" >
                     </div>
-                    <div class="col-3 col-lg-2 hora_evento_inicio_div">
+                    <div class="col-3 col-lg-3 hora_evento_inicio_div">
                         <label for="">Hora inicio</label>
                         <input type="time" id="hora_inicio_evento" name="hora_inicio_evento" min="09:00" max="18:00" >
                     </div>
@@ -558,9 +558,12 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script src='{{ asset('js/fullcalendar/template.js') }}' type="text/javascript"></script>
+<script src='{{ asset('js/fullcalendar/calendario_sidebar.js') }}' type="text/javascript"></script>
 <script src='{{ asset('js/fullcalendar.js') }}' type="text/javascript"></script>
-<script src='{{ asset('js/main.js') }}'></script>
-<script src='{{ asset('js/pt.js') }}'></script>
-<script src='{{ asset('js/custumFullCalendar.js') }}'></script>
+<script src='{{ asset('js/fullcalendar/main.js') }}'></script>
+<script src='{{ asset('js/fullcalendar/pt.js') }}'></script>
+<script src='{{ asset('js/fullcalendar/utils.js') }}' type="text/javascript"></script>
+<script src='{{ asset('js/fullcalendar/custumFullCalendar.js') }}'></script>
 <script src="https://momentjs.com/downloads/moment.js"></script>
 

@@ -3,26 +3,30 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\EventResponse;
+use App\Http\Requests\EventRequest;
 use App\Models\Events;
+use App\Repositories\Contracts\ActivityRepositoryInterface;
+
 use Illuminate\Http\Request;
+
 
 class EventsController extends Controller
 {
+    protected $repository;
+
+    public function __construct(ActivityRepositoryInterface $repository)
+    {
+        return $this->repository = $repository;        
+    }
 
     public function index()
     {
-        return  response()->json(Events::all());
+      return $this->repository->All();
     }
 
-    public function store(Request $request)
+    public function store(EventRequest $request)
     {
-        $request->all();
-
-        $request->validate([
-            'title' => 'required|string'
-        ]);
-
+     
         if ($evento = Events::create($request->all())) {
             return  response()->json($evento);
         }
@@ -42,7 +46,6 @@ class EventsController extends Controller
 
     public function destroy($id)
     {
-
         if ($destroy = Events::find($id)->delete()) {
             return  response()->json('Excluir com Successo');
         }

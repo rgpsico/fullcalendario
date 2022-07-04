@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/events', [EventsController::class, 'index'])->name('calendar.index');
-Route::post('/events/create', [EventsController::class, 'store'])->name('calendar.store');
-Route::patch('/events/update/{id}', [EventsController::class, 'update'])->name('calendar.update');
-Route::delete('/events/destroy/{id}', [EventsController::class, 'destroy'])->name('calendar.destroy');
+Route::get('/events', [EventsController::class, 'index'])->name('event.index');
+Route::post('/events/create', [EventsController::class, 'store'])->name('event.store');
+Route::patch('/events/update/{id}', [EventsController::class, 'update'])->name('event.update');
+Route::delete('/event/destroy/{id}', [EventsController::class, 'destroy'])->name('event.destroy');
