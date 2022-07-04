@@ -11,7 +11,7 @@ class {{modelName}}Request extends FormRequest
         return true; 
     } 
 
-    regras de função pública() 
+    public function() 
     { 
         return []; 
     } 

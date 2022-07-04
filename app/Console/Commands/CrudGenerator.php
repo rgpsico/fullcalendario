@@ -66,6 +66,26 @@ class CrudGenerator extends Command
 
         file_put_contents(app_path("/Http/Controllers/Api/{$name}Controller.php"), $controllerTemplate);
     }
+
+    protected function repository($name)
+    {
+        $controllerTemplate = str_replace(
+            [
+                '{{modelName}}',
+                '{{modelNamePluralLowerCase}}',
+                '{{modelNameSingularLowerCase}}'
+            ],
+            [
+                $name,
+                strtolower( Str::plural($name)),
+                strtolower($name)
+            ],
+            $this->getStub('Controller')
+        );
+
+        file_put_contents(app_path("/Http/Controllers/Api/{$name}Controller.php"), $controllerTemplate);
+    }
+
     protected function request($name)
     {
         $requestTemplate = str_replace(
@@ -92,7 +112,7 @@ class CrudGenerator extends Command
         $this->controller($name);
         $this->model($name);
         $this->request($name);
-    
+        $this->repository($name);
         File::append(base_path('routes/api.php'), 'Route::resource(\'' . Str::plural(strtolower($name)) . "', '{$name}Controller');");
     }
 }
