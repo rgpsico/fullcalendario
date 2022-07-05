@@ -1,32 +1,26 @@
 <?php
 
+use App\Http\Controllers\Api\EventosController;
 use App\Http\Controllers\Api\EventsController;
 use App\Http\Controllers\Api\LocalController;
-use App\Http\Controllers\Api\ProfessorController;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 
 
+Route::prefix('local')->group(function () {
+    Route::get('/', [LocalController::class, 'index']);
+    Route::get('{id}/show', [LocalController::class, 'show']);
+    Route::post('/store', [LocalController::class, 'store']);
+    Route::put('/{id}/update', [LocalController::class, 'update']);
+    Route::delete('/{id}/destroy', [LocalController::class, 'destroy']);
+});
 
+Route::prefix('events')->group(function () {
+    Route::get('/', [EventosController::class, 'index']);
+    Route::get('{id}/show', [EventosController::class, 'show']);
+    Route::post('/create', [EventosController::class, 'store']);
+    Route::put('/{id}/update', [EventosController::class, 'update']);
+    Route::delete('/{id}/destroy', [EventosController::class, 'destroy']);
+});
 
-
-Route::get('/events', [EventsController::class, 'index'])->name('event.index');
-Route::post('/events/create', [EventsController::class, 'store'])->name('event.store');
-Route::patch('/events/update/{id}', [EventsController::class, 'update'])->name('event.update');
-Route::delete('/event/destroy/{id}', [EventsController::class, 'destroy'])->name('event.destroy');
-
-
-Route::get('/local', [LocalController::class, 'index']);
-Route::get('/local/{id}/show', [LocalController::class, 'show']);
-Route::post('/local/store', [LocalController::class, 'store']);
-Route::put('/local/{id}/update', [LocalController::class, 'update']);
-Route::delete('/local/{id}/destroy', [LocalController::class, 'destroy']);
-
-
-
-Route::get('/professor', [ProfessorController::class, 'index']);
-Route::get('/professor/{id}/show', [ProfessorController::class, 'show']);
-Route::post('/professor/store', [ProfessorController::class, 'store']);
-Route::put('/professor/{id}/update', [ProfessorController::class, 'update']);
-Route::delete('/professor/{id}/destroy', [ProfessorController::class, 'destroy']);

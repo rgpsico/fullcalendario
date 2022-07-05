@@ -4,9 +4,11 @@ namespace App\Providers;
 
 
 use App\Repositories\Contracts\ActivityRepositoryInterface;
+use App\Repositories\Contracts\EventosRepositoryInterface;
 use App\Repositories\Contracts\LocalRepositoryInterface;
 use App\Repositories\Contracts\ProfessorRepositoryInterface;
 use App\Repositories\Core\Eloquent\ActivityRepository;
+use App\Repositories\Core\Eloquent\EventosRepository;
 use App\Repositories\Core\Eloquent\LocalRepository;
 use App\Repositories\Core\Eloquent\ProfessorRepository;
 use Illuminate\Support\ServiceProvider;
@@ -33,6 +35,11 @@ class RepositoryProvider extends ServiceProvider
         $this->app->bind(
             ProfessorRepositoryInterface::class,
             ProfessorRepository::class
+        );
+
+        $this->app->bind(
+            EventosRepositoryInterface::class,
+            EventosRepository::class
         );
     }
 

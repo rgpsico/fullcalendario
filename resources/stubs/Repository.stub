@@ -21,7 +21,7 @@ class {{modelName}}Repository implements {{modelName}}RepositoryInterface
 
     public function findById(${{modelName}}Id) 
     {
-         return ${{modelName}} =  {{modelName}}::findOrFail(${{modelName}}Id)->first(); 
+         return ${{modelName}} =  {{modelName}}::where('id', ${{modelName}}Id)->findOrFail(); 
     }           
          
 
