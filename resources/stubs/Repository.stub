@@ -2,49 +2,43 @@
 
 namespace App\Repositories\Core\Eloquent;
 use App\Repositories\Contracts\{{modelName}}RepositoryInterface;
-use App\{{modelName}}; 
+use App\Models\{{modelName}}; 
 
 class {{modelName}}Repository implements {{modelName}}RepositoryInterface 
 { 
 
-    protected $entity;
-
-    public function entity()
-    {
-        return {{modelName}}::class; 
-    }
-
+    
     public function all() 
     { 
-          return ${{modelName}} = $this->entity->all();
+          return ${{modelName}} = {{modelName}}::all();
     } 
 
     public function store($request) 
     { 
-        ${{modelNameSingularLowerCase}} = $this->entity::create($request->all()); 
+        ${{modelNameSingularLowerCase}} = {{modelName}}::create($request); 
         return response()->json(${{modelNameSingularLowerCase}}, 201); 
     } 
 
     public function findById(${{modelName}}Id) 
     {
-         return ${{modelName}} =  $this->entity::where('id', ${{modelName}}Id)            
+         return ${{modelName}} =  {{modelName}}::where('id', ${{modelName}}Id)            
             ->firstOrFail()
             ->format();
     } 
 
     public function  update($request, $id)
     { 
-         if (!${{modelNameSingularLowerCase}}=  $this->entity->find($id)) {
+         if (!${{modelName}} = {{modelName}}::find($id)) {
             return redirect()->back();
         }
 
-        $this->entity->update($request->all());
-        return response()->json(${{modelNameSingularLowerCase}}, 200); 
+        ${{modelName}}->update($request);
+        return response()->json(${{modelName}}, 200); 
     } 
 
     public function destroy(${{modelName}}Id) 
     { 
-        ${{modelNameSingularLowerCase}} = $this->entity->where('id', ${{modelName}}Id)->delete();
+        ${{modelNameSingularLowerCase}} = {{modelName}}::where('id', ${{modelName}}Id)->delete();
     }
 
     
