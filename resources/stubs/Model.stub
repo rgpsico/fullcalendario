@@ -8,6 +8,7 @@ class {{modelName}} extends Model
 { 
 
     //protected $table ='tabela';
+    // protected $fillable = ['name','title']; 
     protected $guarded = ['id']; 
 
 }

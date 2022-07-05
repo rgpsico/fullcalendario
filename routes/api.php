@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\EventsController;
 use App\Http\Controllers\Api\LocalController;
+use App\Http\Controllers\Api\ProfessorController;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
@@ -21,3 +22,11 @@ Route::get('/local/{id}/show', [LocalController::class, 'show']);
 Route::post('/local/store', [LocalController::class, 'store']);
 Route::put('/local/{id}/update', [LocalController::class, 'update']);
 Route::delete('/local/{id}/destroy', [LocalController::class, 'destroy']);
+
+
+
+Route::get('/professor', [ProfessorController::class, 'index']);
+Route::get('/professor/{id}/show', [ProfessorController::class, 'show']);
+Route::post('/professor/store', [ProfessorController::class, 'store']);
+Route::put('/professor/{id}/update', [ProfessorController::class, 'update']);
+Route::delete('/professor/{id}/destroy', [ProfessorController::class, 'destroy']);
