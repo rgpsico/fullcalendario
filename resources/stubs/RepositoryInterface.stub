@@ -5,11 +5,11 @@ namespace App\Repositories\Contracts;
 
 interface {{modelName}}RepositoryInterface 
 { 
-    public function index();  
+    public function all();  
 
     public function store($data);
 
-    public function show($id);
+    public function findById($id);
   
     public function update($data, $id); 
    

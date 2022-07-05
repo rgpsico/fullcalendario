@@ -2,45 +2,52 @@
 
 namespace App\Http\Controllers; 
 
-use App\Http\Requests\{{modelName}}Request; 
-use App\{{modelName}}; 
+use App\Http\Requests\{{modelName}}FormRequest; 
+use App\Repositories\Contracts\{{modelName}}RepositoryInterface;
 
 class {{modelName}}Controller extends Controller 
 { 
-    public function index() 
-    { 
-        ${{modelNamePluralLowerCase}} = {{modelName}}::latest()->get(); 
 
-        return resposta()->json(${{modelNamePluralLowerCase}}); 
+    protected $repository;
+    
+    public function __construct({{modelName}}RepositoryInterface $repository)
+    {
+        $this->repository = $repository;
+    }
+
+    public function index() 
+    {         
+        ${{modelNameSingularLowerCase}} =  $this->repository->orderBy('id')->paginate(); 
+        return response()->json(${{modelNameSingularLowerCase}}); 
     } 
 
-    public function store({{modelName}}Request $request) 
+    public function store({{modelName}}FormRequest $request) 
     { 
-        ${{modelNameSingularLowerCase}} = {{modelName}}::create($request->all()); 
+        ${{modelNameSingularLowerCase}} = $this->repository->store($request->all()); 
 
         return response()->json(${{modelNameSingularLowerCase}}, 201); 
     } 
 
      public function show($id) 
     {
-        ${{modelNameSingularLowerCase}} = {{modelName}}::findOrFail($id); 
+        ${{modelNameSingularLowerCase}} = $this->repository->findOrFail($id); 
 
         return response()->json(${{modelNameSingularLowerCase}}); 
     } 
 
-    public function update({{modelName}}Request $request, $id) 
+    public function update({{modelName}}FormRequest $request, $id) 
     { 
-        ${{modelNameSingularLowerCase}} = {{modelName}}::findOrFail($id); 
-        ${{modelNameSingularLowerCase}}->update($request->all()); 
+        ${{modelNameSingularLowerCase}} = $this->repository->findOrFail($id); 
+         $this->repository->update($request->all()); 
 
-        return resposta()->json(${{modelNameSingularLowerCase}}, 200); 
+        return response()->json(${{modelNameSingularLowerCase}}, 200); 
     } 
 
     public function destroy($id) 
     { 
-        {{modelName}}::destroy($id); 
+        $this->repository->destroy($id);
 
-        return resposta()->json(null, 204); 
+        return response()->json(null, 204); 
     }
 
     

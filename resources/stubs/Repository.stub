@@ -1,45 +1,47 @@
 <?php 
 
 namespace App\Repositories\Core\Eloquent;
-
+use App\Repositories\Contracts\{{modelName}}RepositoryInterface;
 use App\{{modelName}}; 
 
-class {{modelName}}Repository extends RepositoryInterface 
+class {{modelName}}Repository extends {{modelName}}RepositoryInterface 
 { 
-    public function index() 
-    { 
-        ${{modelNamePluralLowerCase}} = {{modelName}}::latest()->get(); 
+    public function entity()
+    {
+        return {{modelName}}::class; 
+    }
 
-        return resposta()->json(${{modelNamePluralLowerCase}}); 
+    public function all() 
+    { 
+          return ${{modelName}} = $this->entity::all();
     } 
 
-    public function store({{modelName}}Request $request) 
+    public function store($request) 
     { 
-        ${{modelNameSingularLowerCase}} = {{modelName}}::create($request->all()); 
-
+        ${{modelNameSingularLowerCase}} = $this->entity::create($request->all()); 
         return response()->json(${{modelNameSingularLowerCase}}, 201); 
     } 
 
-     public function show($id) 
+    public function findById(${{modelName}}Id) 
     {
-        ${{modelNameSingularLowerCase}} = {{modelName}}::findOrFail($id); 
-
-        return response()->json(${{modelNameSingularLowerCase}}); 
+         return ${{modelName}} =  $this->entity::where('id', ${{modelName}}Id)            
+            ->firstOrFail()
+            ->format();
     } 
 
-    public function update({{modelName}}Request $request, $id) 
+    public function  update($request, $id)
     { 
-        ${{modelNameSingularLowerCase}} = {{modelName}}::findOrFail($id); 
-        ${{modelNameSingularLowerCase}}->update($request->all()); 
+         if (!${{modelNameSingularLowerCase}}=  $this->entity->find($id)) {
+            return redirect()->back();
+        }
 
-        return resposta()->json(${{modelNameSingularLowerCase}}, 200); 
+        $this->entity->update($request->all());
+        return response()->json(${{modelNameSingularLowerCase}}, 200); 
     } 
 
-    public function destroy($id) 
+    public function destroy(${{modelName}}Id) 
     { 
-        {{modelName}}::destroy($id); 
-
-        return resposta()->json(null, 204); 
+        ${{modelNameSingularLowerCase}} = $this->entity->where('id', ${{modelName}}Id)->delete();
     }
 
     

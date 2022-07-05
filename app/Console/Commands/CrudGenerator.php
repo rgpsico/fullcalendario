@@ -67,24 +67,7 @@ class CrudGenerator extends Command
         file_put_contents(app_path("/Http/Controllers/Api/{$name}Controller.php"), $controllerTemplate);
     }
 
-    protected function repository($name)
-    {
-        $controllerTemplate = str_replace(
-            [
-                '{{modelName}}',
-                '{{modelNamePluralLowerCase}}',
-                '{{modelNameSingularLowerCase}}'
-            ],
-            [
-                $name,
-                strtolower( Str::plural($name)),
-                strtolower($name)
-            ],
-            $this->getStub('Controller')
-        );
-
-        file_put_contents(app_path("/Http/Controllers/Api/{$name}Controller.php"), $controllerTemplate);
-    }
+    
 
     protected function request($name)
     {
@@ -100,6 +83,47 @@ class CrudGenerator extends Command
         file_put_contents(app_path("/Http/Requests/{$name}Request.php"), $requestTemplate);
     }
 
+
+    protected function repository($name)
+    {
+        $repositoryTemplate = str_replace(
+            [
+                '{{modelName}}',
+                '{{modelNamePluralLowerCase}}',
+                '{{modelNameSingularLowerCase}}'
+            ],
+            [
+                $name,
+                strtolower( Str::plural($name)),
+                strtolower($name)
+            ],
+            $this->getStub('Repository')
+        );
+
+        file_put_contents(app_path("/Repositories/Core/Eloquent/{$name}Repository.php"), $repositoryTemplate);
+    }
+
+
+    protected function interfaceRepository($name)
+    {
+        $interfaceTemplate = str_replace(
+            [
+                '{{modelName}}',
+                '{{modelNamePluralLowerCase}}',
+                '{{modelNameSingularLowerCase}}'
+            ],
+            [
+                $name,
+                strtolower( Str::plural($name)),
+                strtolower($name)
+            ],
+
+            $this->getStub('RepositoryInterface')
+        );
+
+        file_put_contents(app_path("/Repositories/Contracts/{$name}RepositoryInterface.php"), $interfaceTemplate);
+    }
+
     /**
      * Execute the console command.
      *
@@ -110,9 +134,13 @@ class CrudGenerator extends Command
         $name = $this->argument('name');
     
         $this->controller($name);
-        $this->model($name);
-        $this->request($name);
-        $this->repository($name);
-        File::append(base_path('routes/api.php'), 'Route::resource(\'' . Str::plural(strtolower($name)) . "', '{$name}Controller');");
+         $this->model($name);
+         $this->request($name);
+         $this->repository($name);
+         $this->interfaceRepository($name);
+       
+        @File::append(base_path('routes/api.php'), 
+        'Route::resource(\'' . Str::plural(strtolower($name)) .
+         "', '{$name}Controller');");
     }
 }
