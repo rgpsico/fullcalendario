@@ -31,17 +31,17 @@ class {{modelName}}Controller extends Controller
 
      public function show($id) 
     {
-        ${{modelNameSingularLowerCase}} = $this->repository->findOrFail($id); 
+        ${{modelNameSingularLowerCase}} = $this->repository->findById($id); 
 
         return response()->json(${{modelNameSingularLowerCase}}); 
     } 
 
     public function update({{modelName}}FormRequest $request, $id) 
     { 
-        ${{modelNameSingularLowerCase}} = $this->repository->findOrFail($id); 
-         $this->repository->update($request->all()); 
+        ${{modelNameSingularLowerCase}} = $this->repository->findById($id); 
+         $result = $this->repository->update($request->all(), $id); 
 
-        return response()->json(${{modelNameSingularLowerCase}}, 200); 
+        return response()->json($result, 200); 
     } 
 
     public function destroy($id) 

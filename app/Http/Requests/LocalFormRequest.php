@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest; 
 
-class {{modelName}}FormRequest extends FormRequest 
+class LocalFormRequest extends FormRequest 
 { 
     public function authorize() 
     { 

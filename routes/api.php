@@ -17,4 +17,7 @@ Route::delete('/event/destroy/{id}', [EventsController::class, 'destroy'])->name
 
 
 Route::get('/local', [LocalController::class, 'index']);
+Route::get('/local/{id}/show', [LocalController::class, 'show']);
 Route::post('/local/store', [LocalController::class, 'store']);
+Route::put('/local/{id}/update', [LocalController::class, 'update']);
+Route::delete('/local/{id}/destroy', [LocalController::class, 'destroy']);
