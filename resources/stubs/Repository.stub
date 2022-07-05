@@ -4,8 +4,11 @@ namespace App\Repositories\Core\Eloquent;
 use App\Repositories\Contracts\{{modelName}}RepositoryInterface;
 use App\{{modelName}}; 
 
-class {{modelName}}Repository extends {{modelName}}RepositoryInterface 
+class {{modelName}}Repository implements {{modelName}}RepositoryInterface 
 { 
+
+    protected $entity;
+
     public function entity()
     {
         return {{modelName}}::class; 
@@ -13,7 +16,7 @@ class {{modelName}}Repository extends {{modelName}}RepositoryInterface
 
     public function all() 
     { 
-          return ${{modelName}} = $this->entity::all();
+          return ${{modelName}} = $this->entity->all();
     } 
 
     public function store($request) 

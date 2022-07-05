@@ -80,7 +80,7 @@ class CrudGenerator extends Command
         if (!file_exists($path = app_path('/Http/Requests')))
             mkdir($path, 0777, true);
 
-        file_put_contents(app_path("/Http/Requests/{$name}Request.php"), $requestTemplate);
+        file_put_contents(app_path("/Http/Requests/{$name}FormRequest.php"), $requestTemplate);
     }
 
 

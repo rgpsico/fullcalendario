@@ -4,7 +4,9 @@ namespace App\Providers;
 
 
 use App\Repositories\Contracts\ActivityRepositoryInterface;
+use App\Repositories\Contracts\LocalRepositoryInterface;
 use App\Repositories\Core\Eloquent\ActivityRepository;
+use App\Repositories\Core\Eloquent\LocalRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryProvider extends ServiceProvider
@@ -19,6 +21,11 @@ class RepositoryProvider extends ServiceProvider
         $this->app->bind(
             ActivityRepositoryInterface::class,
             ActivityRepository::class
+        );
+
+        $this->app->bind(
+            LocalRepositoryInterface::class,
+            LocalRepository::class
         );
     }
 
