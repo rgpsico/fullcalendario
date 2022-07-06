@@ -89,3 +89,16 @@ Route::prefix('opcoescadastrofunc')->group(function () {
 });
 
 /*FIM CONFIGURAÇÂO API*/
+
+
+/*ATIVIDADES*/
+
+Route::prefix('atividades')->group(function () {
+    Route::get('/', [AtividadesController::class, 'index']);
+    Route::get('{id}/show', [AtividadesController::class, 'show']);
+    Route::post('/store', [AtividadesController::class, 'store']);
+    Route::put('/{id}/update', [AtividadesController::class, 'update']);
+    Route::delete('/{id}/destroy', [AtividadesController::class, 'destroy']);
+});
+
+/*FIM ATIVIDADES*/

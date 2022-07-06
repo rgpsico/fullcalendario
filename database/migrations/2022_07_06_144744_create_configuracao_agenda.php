@@ -15,9 +15,9 @@ class CreateConfiguracaoAgenda extends Migration
     {
         Schema::create('configuracao_agenda', function (Blueprint $table) {
             $table->id();
-            $table->integer('agen_intervalo');
-            $table->integer('agen_altura_linha_em_px')->default(0);
-            $table->integer('agen_devolucao_credito');
+            $table->integer('intervalo_agenda_min');
+            $table->integer('antecendia_agendar_horas')->default(0);
+            $table->integer('antecendia_recp_canc_remar_horas');
             $table->time('hora_inicio', $precision = 0);
             $table->time('hora_fim', $precision = 0); 
             $table->string('assunto_de_alerta_email',100);  
