@@ -6,6 +6,8 @@ use App\Http\Controllers\Api\EmailConfigController;
 use App\Http\Controllers\Api\EventosController;
 use App\Http\Controllers\Api\EventsController;
 use App\Http\Controllers\Api\LocalController;
+use App\Http\Controllers\Api\OpcoesCadastroAlunoController;
+use App\Http\Controllers\Api\OpcoesCadastroFuncionarioController;
 use App\Http\Controllers\Api\PermissaoAgendaController;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
@@ -66,6 +68,24 @@ Route::prefix('configEmail')->group(function () {
     Route::post('/store', [EmailConfigController::class, 'store']);
     Route::put('/{id}/update', [EmailConfigController::class, 'update']);
     Route::delete('/{id}/destroy', [EmailConfigController::class, 'destroy']);
+});
+
+
+Route::prefix('opcoescadastroaluno')->group(function () {
+    Route::get('/', [OpcoesCadastroAlunoController::class, 'index']);
+    Route::get('{id}/show', [OpcoesCadastroAlunoController::class, 'show']);
+    Route::post('/store', [OpcoesCadastroAlunoController::class, 'store']);
+    Route::put('/{id}/update', [OpcoesCadastroAlunoController::class, 'update']);
+    Route::delete('/{id}/destroy', [OpcoesCadastroAlunoController::class, 'destroy']);
+});
+
+
+Route::prefix('opcoescadastrofunc')->group(function () {
+    Route::get('/', [OpcoesCadastroFuncionarioController::class, 'index']);
+    Route::get('{id}/show', [OpcoesCadastroFuncionarioController::class, 'show']);
+    Route::post('/store', [OpcoesCadastroFuncionarioController::class, 'store']);
+    Route::put('/{id}/update', [OpcoesCadastroFuncionarioController::class, 'update']);
+    Route::delete('/{id}/destroy', [OpcoesCadastroFuncionarioController::class, 'destroy']);
 });
 
 /*FIM CONFIGURAÇÂO API*/
