@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AlertaEmailConfigController;
 use App\Http\Controllers\Api\ConfiguracaoAgendaController;
+use App\Http\Controllers\Api\EmailConfigController;
 use App\Http\Controllers\Api\EventosController;
 use App\Http\Controllers\Api\EventsController;
 use App\Http\Controllers\Api\LocalController;
@@ -26,6 +27,10 @@ Route::prefix('events')->group(function () {
     Route::put('/{id}/update', [EventsController::class, 'update']);
     Route::delete('/{id}/destroy', [EventsController::class, 'destroy']);
 });
+
+
+
+/*CONFIGURAÇÂO API*/
 
 Route::prefix('configuracao')->group(function () {
     Route::get('/', [ConfiguracaoAgendaController::class, 'index']);
@@ -54,3 +59,13 @@ Route::prefix('alertaemail')->group(function () {
     Route::delete('/{id}/destroy', [AlertaEmailConfigController::class, 'destroy']);
 });
 
+
+Route::prefix('configEmail')->group(function () {
+    Route::get('/', [EmailConfigController::class, 'index']);
+    Route::get('{id}/show', [EmailConfigController::class, 'show']);
+    Route::post('/store', [EmailConfigController::class, 'store']);
+    Route::put('/{id}/update', [EmailConfigController::class, 'update']);
+    Route::delete('/{id}/destroy', [EmailConfigController::class, 'destroy']);
+});
+
+/*FIM CONFIGURAÇÂO API*/
