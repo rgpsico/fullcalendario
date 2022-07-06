@@ -4,12 +4,18 @@ namespace App\Providers;
 
 
 use App\Repositories\Contracts\ActivityRepositoryInterface;
+use App\Repositories\Contracts\AlertaEmailConfigRepositoryInterface;
+use App\Repositories\Contracts\ConfiguracaoAgendaRepositoryInterface;
 use App\Repositories\Contracts\EventosRepositoryInterface;
 use App\Repositories\Contracts\LocalRepositoryInterface;
+use App\Repositories\Contracts\PermissaoAgendaRepositoryInterface;
 use App\Repositories\Contracts\ProfessorRepositoryInterface;
 use App\Repositories\Core\Eloquent\ActivityRepository;
+use App\Repositories\Core\Eloquent\AlertaEmailConfigRepository;
+use App\Repositories\Core\Eloquent\ConfiguracaoAgendaRepository;
 use App\Repositories\Core\Eloquent\EventosRepository;
 use App\Repositories\Core\Eloquent\LocalRepository;
+use App\Repositories\Core\Eloquent\PermissaoAgendaRepository;
 use App\Repositories\Core\Eloquent\ProfessorRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -33,13 +39,18 @@ class RepositoryProvider extends ServiceProvider
         );
 
         $this->app->bind(
-            ProfessorRepositoryInterface::class,
-            ProfessorRepository::class
+            ConfiguracaoAgendaRepositoryInterface::class,
+            ConfiguracaoAgendaRepository::class
         );
 
         $this->app->bind(
-            EventosRepositoryInterface::class,
-            EventosRepository::class
+            PermissaoAgendaRepositoryInterface::class,
+            PermissaoAgendaRepository::class
+        );
+
+        $this->app->bind(
+            AlertaEmailConfigRepositoryInterface::class,
+            AlertaEmailConfigRepository::class
         );
     }
 
