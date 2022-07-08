@@ -4,7 +4,6 @@ use App\Http\Controllers\Api\AlertaEmailConfigController;
 use App\Http\Controllers\Api\ConfiguracaoAgendaController;
 use App\Http\Controllers\Api\EmailConfigController;
 use App\Http\Controllers\Api\EventosController;
-use App\Http\Controllers\Api\EventsController;
 use App\Http\Controllers\Api\LocalController;
 use App\Http\Controllers\Api\OpcoesCadastroAlunoController;
 use App\Http\Controllers\Api\OpcoesCadastroFuncionarioController;
@@ -23,11 +22,11 @@ Route::prefix('local')->group(function () {
 });
 
 Route::prefix('events')->group(function () {
-    Route::get('/', [EventsController::class, 'index']);
-    Route::get('{id}/show', [EventsController::class, 'show']);
-    Route::post('/store', [EventsController::class, 'store']);
-    Route::put('/{id}/update', [EventsController::class, 'update']);
-    Route::delete('/{id}/destroy', [EventsController::class, 'destroy']);
+    Route::get('/', [EventosController::class, 'index']);
+    Route::get('{id}/create', [EventosController::class, 'create']);
+    Route::post('/create', [EventosController::class, 'store']);
+    Route::put('/{id}/update', [EventosController::class, 'update']);
+    Route::delete('/{id}/destroy', [EventosController::class, 'destroy']);
 });
 
 
